@@ -1,0 +1,41 @@
+{        "nom_salarie": "CASARIN",
+        "prenom_salarie" : "Sarah",
+        "telephone_salarie" : 1234567890,
+        "rue_salarie" : "qdfkjdfdfsg",
+        "cp_salarie": 12345,
+        "ville_salarie": "ukhdkfjgdsfg",
+        "num_ss" :"iugds234345",
+        "date_naissance":"2022-01-01",
+        "lieu_naissance": "iudfhndsf",
+        "nom_jeune_fille" : "dqfgdqfgfd",
+	"email_salarie": "dfgdsfgsdfd",
+        "mdp_salarie": "fqhsgheth" }
+
+    {
+        "nom_entreprise": "IUHUIHDSFG",
+        "prenom_entreprise": "sfgffhdfgh",
+        "telephone_entreprise": "1234567",
+        "rue_entreprise": "sedrgdgf",
+        "cp_entreprise": "1234",
+        "ville_entreprise": "ergyertyt",
+        "siret": "1234567890",
+        "raison_sociale": "redgfersfgfds",
+        "code_ape": "1234",
+        "email_entreprise": "dfgsdfgfh",
+        "mdp_entreprise": "dfgsfhsfghgfh"
+    }
+
+    {
+    {
+"type": "CDD",
+            "is_fullTime" : "true",
+            "date_debut" : "2022-01-01",
+            "date_fin" : "2022-01-31",
+            "periode_fin_essai" : "2022-01-04",
+            "remuneration" : "5000",
+            "motif": "qsdSDFGfds",
+            "fonction" : "qsdDDfds",
+            "statut" : "qsDFFdfds",
+            "fk_entreprise": "2",
+            "fk_salarie" : "1"
+    }
