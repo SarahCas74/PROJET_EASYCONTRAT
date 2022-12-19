@@ -1,29 +1,34 @@
 const express = require('express');
 const routeSalarie = express.Router();
-const {createSalarie, listSalarie, oneSalarie, deleteSalarie, updateSalarie, login} = require('./salarie.controller')
+const {createSalarie, listSalarie, oneSalarie, deleteSalarie, updateSalarie, loginSalarie, getProfil, putUpdateSalarie} = require('./salarie.controller')
 const verifyToken = require ('../../middleware/auth_middleware')
 
-routeSalarie.route('/salarie')
+routeSalarie
 //create "un salarie"
-.post(createSalarie)
+.post('/',createSalarie)
 
-//read la liste de tous les salariés
-.get(listSalarie)
 
 //login salarie
-routeSalarie.route('/salarie/login')
-.post( login )
+.post('/login', loginSalarie )
 
-routeSalarie.use(verifyToken)
+.use(verifyToken)
 
-routeSalarie.route('/salarie/:id')
+//getProfil
+.get('/profil', getProfil )
+
 //read le profil salarie
-.get(oneSalarie)
+.get('/:id', oneSalarie )
+
+//read la liste de tous les salariés
+.get('/',listSalarie)
 
 //delete le profil salarié
-.delete(deleteSalarie)
+.delete('/:id',deleteSalarie)
 
 //update les informations salariés
-.put(updateSalarie)
+.put('/update',putUpdateSalarie)
+
+//update les informations salariés
+.put('/:id',updateSalarie)
 
 module.exports = routeSalarie;

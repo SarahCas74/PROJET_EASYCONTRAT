@@ -1,0 +1,21 @@
+<div class="content">
+<div class="profilEntreprise">
+    <h2>Mon Profil</h2>
+
+    <ul>
+      <li>Nom : {{profilEntreprise.nom_entreprise}} </li>
+      <li>Prénom : {{profilEntreprise.prenom_entreprise}}</li>
+      <li>Téléphone : {{profilEntreprise.telephone_entreprise}}</li>
+      <li>Rue : {{profilEntreprise.rue_entreprise}}</li>
+      <li>Code postal : {{profilEntreprise.cp_entreprise}}</li>
+      <li> Ville : {{profilEntreprise.ville_entreprise}}</li>
+      <li>Siret : {{profilEntreprise.siret}}</li>
+      <li>Code APE : {{profilEntreprise.code_ape}}</li>
+      <li>Raison Sociale : {{profilEntreprise.raison_sociale}}</li>
+      <li>E mail : {{profilEntreprise.email_entreprise}}</li>
+      <button (click)="editModal(profilEntreprise)" mat-mini-fab color="primary">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </ul>
+  </div>
+</div>

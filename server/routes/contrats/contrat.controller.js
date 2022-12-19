@@ -72,7 +72,7 @@ exports.deleteContrat = async (req, res) => {
 exports.updateContrat = async (req, res) => {
     try {
         const { id } = req.params; //récupère :id
-        const { type,
+        const { type_,
             is_fullTime,
             date_debut,
             date_fin,
@@ -84,9 +84,9 @@ exports.updateContrat = async (req, res) => {
             fk_entreprise,
             fk_salarie } = req.body;
 
-        const updateContrat = await pool.query("UPDATE entreprise SET type=$1, is_fullTime=$2, date_debut=$3, date_fin=$4, periode_fin_essai=$5, remuneration=$6, motif=$7, fonction=$8, statut=$9, fk_entreprise=$10, fk_salarie=$11 WHERE id_contrat=$12",
+        const updateContrat = await pool.query("UPDATE contrat SET type_=$1, \"is_fullTime\"=$2, date_debut=$3, date_fin=$4, periode_fin_essai=$5, remuneration=$6, motif=$7, fonction=$8, statut=$9, fk_entreprise=$10, fk_salarie=$11 WHERE id_contrat=$12",
 
-            [type,
+            [type_,
                 is_fullTime,
                 date_debut,
                 date_fin,

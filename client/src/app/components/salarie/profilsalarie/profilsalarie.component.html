@@ -1,0 +1,22 @@
+<div class="content">
+<div class="profil">
+    <h2>Mon Profil</h2>
+
+    <ul>
+      <li>Nom : {{profilSalarie.nom_salarie}} </li>
+      <li>Prénom : {{profilSalarie.prenom_salarie}}</li>
+      <li>Nom de jeune fille : {{profilSalarie.nom_jeune_fille}}</li>
+      <li>Téléphone : {{profilSalarie.telephone_salarie}}</li>
+      <li>Rue : {{profilSalarie.rue_salarie}}</li>
+      <li>Code postal : {{profilSalarie.cp_salarie}}</li>
+      <li> Ville : {{profilSalarie.ville_salarie}}</li>
+      <li>Numéro SS : {{profilSalarie.num_ss}}</li>
+      <li>Date de naissance : {{profilSalarie.date_naissance}}</li>
+      <li>Lieu de naissance : {{profilSalarie.lieu_naissance}}</li>
+      <li>E mail : {{profilSalarie.email_salarie}}</li>
+      <button (click)="editModal(profilSalarie)" mat-mini-fab color="primary">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </ul>
+  </div>
+</div>

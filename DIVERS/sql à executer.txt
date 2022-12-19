@@ -3,9 +3,9 @@
 BEGIN;
 
 
-CREATE TABLE IF NOT EXISTS public."CONTRAT"
+CREATE TABLE IF NOT EXISTS public."contrat"
 (
-    id_contrat integer NOT NULL PRIMARY KEY,
+    id_contrat serial NOT NULL PRIMARY KEY,
     type character varying COLLATE pg_catalog."default" NOT NULL,
     "is_fullTime" boolean NOT NULL,
     date_debut date NOT NULL,
@@ -19,11 +19,11 @@ CREATE TABLE IF NOT EXISTS public."CONTRAT"
     fk_salarie integer NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS public."ENTREPRISE"
+CREATE TABLE IF NOT EXISTS public."entreprise"
 (
-    nom_entreprise character varying COLLATE pg_catalog."default" NOT NULL,
+    id_entreprise serial NOT NULL PRIMARY KEY,
+nom_entreprise character varying COLLATE pg_catalog."default" NOT NULL,
     prenom_entreprise character varying COLLATE pg_catalog."default" NOT NULL,
-    id_entreprise integer NOT NULL PRIMARY KEY,
     telephone_entreprise numeric NOT NULL,
     rue_entreprise character varying COLLATE pg_catalog."default" NOT NULL,
     cp_entreprise numeric NOT NULL,
@@ -33,9 +33,9 @@ CREATE TABLE IF NOT EXISTS public."ENTREPRISE"
     code_ape character varying COLLATE pg_catalog."default" NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS public."LOGIN"
+CREATE TABLE IF NOT EXISTS public."login"
 (
-    id_login integer NOT NULL,
+    id_login serial NOT NULL,
     email character varying COLLATE pg_catalog."default" NOT NULL,
     mdp character varying COLLATE pg_catalog."default" NOT NULL,
     role character varying COLLATE pg_catalog."default" NOT NULL,
@@ -44,9 +44,9 @@ CREATE TABLE IF NOT EXISTS public."LOGIN"
     CONSTRAINT "LOGIN_pkey" PRIMARY KEY (id_login)
 );
 
-CREATE TABLE IF NOT EXISTS public."SALARIE"
+CREATE TABLE IF NOT EXISTS public."salarie"
 (
-    "id_salarié" integer NOT NULL PRIMARY KEY,
+    "id_salarie" serial NOT NULL PRIMARY KEY,
     nom_salarie character varying COLLATE pg_catalog."default" NOT NULL,
     prenom_salarie character varying COLLATE pg_catalog."default" NOT NULL,
     telephone_salarie numeric NOT NULL,
@@ -59,17 +59,17 @@ CREATE TABLE IF NOT EXISTS public."SALARIE"
     nom_jeune_fille character varying COLLATE pg_catalog."default" NOT NULL
 );
 
-ALTER TABLE IF EXISTS public."CONTRAT"
+ALTER TABLE IF EXISTS public."contrat"
     ADD CONSTRAINT contrainte_fk_entreprise FOREIGN KEY (fk_entreprise)
-    REFERENCES public."ENTREPRISE" (id_entreprise) MATCH SIMPLE
+    REFERENCES public."entreprise" (id_entreprise) MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."CONTRAT"
+ALTER TABLE IF EXISTS public."contrat"
     ADD CONSTRAINT fk_contrainte_salarie FOREIGN KEY (fk_salarie)
-    REFERENCES public."SALARIE" ("id_salarié") MATCH SIMPLE
+    REFERENCES public."salarie" ("id_salarié") MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;

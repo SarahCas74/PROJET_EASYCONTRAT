@@ -27,7 +27,7 @@
 
     {
     {
-"type": "CDD",
+"type_": "CDD",
             "is_fullTime" : "true",
             "date_debut" : "2022-01-01",
             "date_fin" : "2022-01-31",

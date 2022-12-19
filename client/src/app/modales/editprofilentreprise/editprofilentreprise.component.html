@@ -1,0 +1,69 @@
+<h2>Editer</h2>
+
+<form [formGroup]="updatedProfilForm" (ngSubmit)="onEdit(data)">
+
+    <div>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label for="">Nom</mat-label>
+            <input matInput type="text" class="form-control" formControlName="nom_entreprise">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label for="">Prénom</mat-label>
+            <input matInput type="text" class="form-control" formControlName="prenom_entreprise">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Raison Sociale</mat-label>
+            <input type="text" matInput class="form-control" formControlName="raison_sociale">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Code APE</mat-label>
+            <input type="text" matInput class="form-control" formControlName="code_ape">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label for="">Siret</mat-label>
+            <input matInput type="text" class="form-control" formControlName="siret">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label for="">Rue</mat-label>
+            <input matInput type="text" class="form-control" formControlName="rue_entreprise">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label for="">Code Postal</mat-label>
+            <input matInput type="text" class="form-control" formControlName="cp_entreprise">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label for="">Ville</mat-label>
+            <input matInput type="text" class="form-control" formControlName="ville_entreprise">
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label for="">Téléphone</mat-label>
+            <input matInput type="email" class="form-control" formControlName="telephone_entreprise">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label for="">E Mail</mat-label>
+            <input matInput type="email" class="form-control" formControlName="email_entreprise">
+        </mat-form-field>
+    </div>
+
+    <div style="display:flex; align-items:center; justify-content:center">
+        <div><button mat-raised-button type="submit" color="primary">Edit</button> </div>
+        <div style="margin-left:10px"><button mat-raised-button color="primary" (click)="closeModal()">Close</button>
+        </div>
+    </div>
+
+</form>

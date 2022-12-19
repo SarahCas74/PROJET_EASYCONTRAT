@@ -1,0 +1,119 @@
+<h2 style="text-align:center">Espace Entreprise</h2>
+
+<div class="generalEntreprise">
+
+    <div class="loginEntreprise">
+        <form [formGroup]="entrepriseLoginForm" (ngSubmit)="onSubmitLogin()">
+
+            <h2>Connexion</h2>
+
+            <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">E Mail</mat-label>
+                <input matInput type="email" class="form-control" formControlName="email_entreprise">
+            </mat-form-field>
+</div>
+
+<div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Mot de passe</mat-label>
+                <input matInput type="password" class="form-control" formControlName="mdp_entreprise">
+            </mat-form-field><br>
+</div>
+            <p> <a href="" style="cursor:pointer">Mot de passe oublié</a></p>
+
+            <div mat-dialog-actions>
+                <button style="margin-top: 30px;" class="button" mat-raised-button type="submit" color="primary"
+                    [disabled]="entrepriseLoginForm.invalid" mat-button cdkFocusInitial>Connexion</button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="registerEntreprise">
+        <form [formGroup]="entrepriseRegisterForm" (ngSubmit)="onSubmitRegister()" class="formulaire">
+
+            <h2>Inscription</h2>
+
+            <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Nom</mat-label>
+                <input matInput type="text" class="form-control" formControlName="nom_entreprise">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Prénom</mat-label>
+                <input matInput type="text" class="form-control" formControlName="prenom_entreprise">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Siret</mat-label>
+                <input type="number" matInput class="form-control" formControlName="siret">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Raison Sociale</mat-label>
+                <input type="text" matInput class="form-control" formControlName="raison_sociale">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Code APE</mat-label>
+                <input matInput type="text" class="form-control" formControlName="code_ape">
+            </mat-form-field>
+
+        </div>
+
+        <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Rue</mat-label>
+                <input matInput type="text" class="form-control" formControlName="rue_entreprise">
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Code Postal</mat-label>
+                <input matInput type="text" class="form-control" formControlName="cp_entreprise">
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Ville</mat-label>
+                <input matInput type="text" class="form-control" formControlName="ville_entreprise">
+            </mat-form-field>
+        </div>
+
+        <div>
+            
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Téléphone</mat-label>
+                <input matInput type="email" class="form-control" formControlName="telephone_entreprise">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">E Mail</mat-label>
+                <input matInput type="email" class="form-control" formControlName="email_entreprise">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Mot de passe</mat-label>
+                <input matInput type="password" class="form-control" formControlName="mdp_entreprise">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Confirmer le Mot de passe</mat-label>
+                <input matInput type="password" class="form-control" formControlName="confirmPassword">
+                <mat-error *ngIf="errorPass">
+                Vos mots de passe ne correspondent pas
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+            <button mat-raised-button type="submit" color="primary" [disabled]="entrepriseRegisterForm.invalid" mat-button
+                cdkFocusInitial>Créer mon compte</button>
+
+        </form>
+    </div>
+
+</div>

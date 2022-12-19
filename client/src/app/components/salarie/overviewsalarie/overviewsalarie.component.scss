@@ -1,0 +1,77 @@
+.example-container {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .content {
+    display: flex;
+    height: 100%;
+    justify-content: center }
+  
+  .example-sidenav {
+    padding: 20px;
+  }
+
+  button{
+    margin: 5px;
+  }
+
+  .picto-itemlogout:hover:after,
+.picto-itemlogout:focus:after {
+  content: attr(aria-label);
+  /* on affiche aria-label */
+  position: absolute;
+  top: 1em;
+  right: 110%;
+  transform: translateX(-0%);
+  /* on centre horizontalement  */
+  z-index: 1;
+  /* pour s'afficher au dessus des éléments en position relative */
+  white-space: nowrap;
+  /* on interdit le retour à la ligne*/
+  padding: 5px 14px;
+  background: #3797a3;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1.2rem;
+
+}
+
+.picto-itemmenu:hover:after,
+.picto-itemmenu:focus:after {
+  content: attr(aria-label);
+  /* on affiche aria-label */
+  position: absolute;
+  top: 1em;
+  right: 110%;
+  transform: translateX(200%);
+  /* on centre horizontalement  */
+  z-index: 1;
+  /* pour s'afficher au dessus des éléments en position relative */
+  white-space: nowrap;
+  /* on interdit le retour à la ligne*/
+  padding: 5px 14px;
+  background: #3797a3;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1.2rem;
+
+}
+
+.picto-itemlogout,
+.picto-itemmenu {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 .1em;
+  width: 1.2em;
+  height: 1.2em;
+  background: white;
+  font-size: 3rem;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+
+}
+
+

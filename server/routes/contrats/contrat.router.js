@@ -1,15 +1,17 @@
 const express = require('express');
 const routeContrat = express.Router();
 const {createContrat, listContrat, oneContrat, deleteContrat, updateContrat}=require('./contrat.controller')
+const verifyToken = require ('../../middleware/auth_middleware')
 
-routeContrat.route('/contrat')
+routeContrat
+.use(verifyToken)
 //create "un contrat"
-.post(createContrat)
+.post('/',createContrat)
 
 //read la liste de toutes le contrats
 .get(listContrat)
 
-routeContrat.route('/contrat/:id')
+routeContrat.route('/:id')
 //read le contrat
 .get(oneContrat)
 

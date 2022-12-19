@@ -1,0 +1,82 @@
+<!-- <p>Vérifier les informations avant de valider le contrat</p> -->
+<div *ngIf="data.value" class=contrat>
+    <h1>Contrat de travail</h1>
+    <h2>{{data.value.type_}}</h2>
+
+    <h3> Entre la société</h3>
+    <p>
+        {{data.value.raison_sociale}} <br>
+        {{data.value.rue_entreprise}} <br>
+        {{data.value.cp_entreprise}} {{data.value.ville_entreprise}}<br>
+
+        {{data.value.siret}} {{data.value.code_ape}}
+    </p>
+
+    <h3> Etablissement </h3>
+    <p>
+        {{data.value.raison_sociale}} <br>
+        {{data.value.rue_entreprise}} <br>
+        {{data.value.cp_entreprise}} {{data.value.ville_entreprise}}<br>
+
+        {{data.value.siret}} {{data.value.code_ape}}
+    </p>
+
+    <h3>Représenté par</h3>
+    {{data.value.nom_entreprise}} {{data.value.prenom_entreprise}}
+
+    <h3>Et le collaborateur</h3>
+    <p>
+        {{data.value.nom_salarie}} {{data.value.prenom_salarie}} <br>
+        {{data.value.rue_salarie}} <br>
+        {{data.value.cp_salarie}} {{data.value.ville_salarie}} <br>
+        né(e) le : {{data.value.date_naissance}} à {{data.value.lieu_naissance}}
+    </p>
+
+    <h3>Données du contrat</h3>
+
+    <p>Date d'entrée en entreprise : {{data.value.date_debut}}</p>
+    <p>Date de fin de contrat : {{data.value.date_fin}}</p>
+    <p>Motif : {{data.value.motif}}</p>
+
+    <p>Période d'essai jusqu'au : {{data.value.fin_periode_essai}}</p>
+
+    <p>Fonction : {{data.value.fonction}}</p>
+    <p>Statut : {{data.value.statut}}</p>
+    <p> Rémunération : {{data.value.remuneration}}</p>
+
+
+    <p>Fait à {{data.value.ville_entreprise}} </p>
+    <p>Le {{data.value.date_debut}}</p>
+    <p>En double exemplaire</p>
+
+    <div class="signature">
+        <p>{{data.value.nom_entreprise}} {{data.value.prenom_entreprise}}</p>
+
+
+        <p> {{data.value.nom_salarie}} {{data.value.prenom_salarie}}</p>
+    </div>
+
+
+
+    <!-- <div *ngIf="data.value">
+    <ul>
+        <li> Nom de l'entreprise : {{data.value.fk_entreprise}} </li>
+        <li>Nom du salarié : {{data.value.fk_salarie}}</li>
+        <li>Date de début : {{data.value.date_debut}}</li>
+        <li>Date de fin : {{data.value.date_fin}}</li>
+        <li>Fin de période d'essai : {{data.value.periode_fin_essai}}</li>
+        <li> Type de contrat : {{data.value.type_}}</li>
+        <li> Motif : {{data.value.motif}}</li>
+        <li> Fonction : {{data.value.fonction}}</li>
+        <li> Temps partiel ? : {{data.value.is_fullTime}}</li>
+        <li> Rémunération : {{data.value.remuneration}}</li>
+        <li> Statut : {{data.value.statut}}</li>
+    </ul>
+</div> -->
+
+    <div style="display:flex; align-items:center; justify-content:center">
+        <div><button mat-raised-button type="submit" color="primary" (click)="onConfirm()">Confirmer</button> </div>
+        <div style="margin-left:10px"><button mat-raised-button color="primary" (click)="closeModal()">Annuler</button>
+        </div>
+    </div>
+</div>

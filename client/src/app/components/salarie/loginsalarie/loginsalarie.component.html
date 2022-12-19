@@ -1,0 +1,124 @@
+<h2 style="text-align:center">Espace Salarié</h2>
+
+<div class="generalSalarie">
+
+    <div class="loginSalarie">
+        <form [formGroup]="salarieLoginForm" (ngSubmit)="onSubmitLogin()">
+
+            <h2>Connexion</h2>
+
+            <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">E Mail</mat-label>
+                <input matInput type="email" class="form-control" formControlName="email_salarie">
+            </mat-form-field>
+</div>
+
+<div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Mot de passe</mat-label>
+                <input matInput type="password" class="form-control" formControlName="mdp_salarie">
+            </mat-form-field><br>
+</div>
+            <p> <a href="" style="cursor:pointer">Mot de passe oublié</a></p>
+
+            <div mat-dialog-actions>
+                <button style="margin-top: 30px;" class="button" mat-raised-button type="submit" color="primary"
+                    [disabled]="salarieLoginForm.invalid" mat-button cdkFocusInitial>Connexion</button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="registerSalarie">
+        <form [formGroup]="salarieRegisterForm" (ngSubmit)="onSubmitRegister()" class="formulaire">
+
+            <h2>Inscription</h2>
+
+            <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Nom</mat-label>
+                <input matInput type="text" class="form-control" formControlName="nom_salarie">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Nom de jeune fille</mat-label>
+                <input matInput type="text" class="form-control" formControlName="nom_jeune_fille">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Prénom</mat-label>
+                <input matInput type="text" class="form-control" formControlName="prenom_salarie">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Date de naissance</mat-label>
+                <input type="date" matInput class="form-control" formControlName="date_naissance">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Lieu de naissance</mat-label>
+                <input type="text" matInput class="form-control" formControlName="lieu_naissance">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Num SS</mat-label>
+                <input matInput type="text" class="form-control" formControlName="num_ss">
+            </mat-form-field>
+
+        </div>
+
+        <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Rue</mat-label>
+                <input matInput type="text" class="form-control" formControlName="rue_salarie">
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Code Postal</mat-label>
+                <input matInput type="text" class="form-control" formControlName="cp_salarie">
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Ville</mat-label>
+                <input matInput type="text" class="form-control" formControlName="ville_salarie">
+            </mat-form-field>
+        </div>
+
+        <div>
+            
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Téléphone</mat-label>
+                <input matInput type="email" class="form-control" formControlName="telephone_salarie">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">E Mail</mat-label>
+                <input matInput type="email" class="form-control" formControlName="email_salarie">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Mot de passe</mat-label>
+                <input matInput type="password" class="form-control" formControlName="mdp_salarie">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label for="">Confirmer le Mot de passe</mat-label>
+                <input matInput type="password" class="form-control" formControlName="confirmPassword">
+                <mat-error *ngIf="errorPass">
+                Vos mots de passe ne correspondent pas
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+            <button mat-raised-button type="submit" color="primary" [disabled]="salarieRegisterForm.invalid" mat-button
+                cdkFocusInitial>Créer mon compte</button>
+
+        </form>
+    </div>
+
+</div>
