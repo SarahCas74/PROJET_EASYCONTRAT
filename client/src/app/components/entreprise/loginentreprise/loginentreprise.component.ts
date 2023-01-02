@@ -16,6 +16,7 @@ entrepriseLoginForm!: FormGroup;
 entrepriseRegisterForm!: FormGroup;
 entreprise = new EntrepriseModel();
 errorPass = true
+hide = true;
 
   constructor(private _fb: FormBuilder,
     private _route: Router,

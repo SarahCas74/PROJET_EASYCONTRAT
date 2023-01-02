@@ -11,12 +11,12 @@ export class GlobalService {
   backend = 'http://127.0.0.1:5000';
   constructor(private _http: HttpClient, private router: Router) { }
 
-  //Méthode pour récupérer le token
+  //Récupérer le token
   getToken(): string | null {
     return localStorage.getItem('token')
   }
 
-  //Méhode qui supprime le token pour la déconnexion Log out dans l'overview
+  //Supprime le token pour la déconnexion Log out dans l'overview
   clearToken() {
     localStorage.removeItem('token')
     this.router.navigate([''])
@@ -46,6 +46,12 @@ export class GlobalService {
   getProfilSalarie(): Observable<any> {
     return this._http.get(this.backend + "/salarie/profil")
   }
+
+  // profil salarie pour créer un contrat
+  getProfilOneSalarie(id:number): Observable<any> {
+    return this._http.get(this.backend + `/salarie/${id}`)
+  }
+
 
   // profil entreprise
   getProfilEntreprise(): Observable<any> {

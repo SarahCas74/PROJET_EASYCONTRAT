@@ -10,7 +10,9 @@ import { NgModule } from '@angular/core';
 import { OverviewentrepriseComponent } from './components/entreprise/overviewentreprise/overviewentreprise.component';
 import { OverviewsalarieComponent } from './components/salarie/overviewsalarie/overviewsalarie.component';
 import { ProfilentrepriseComponent } from './components/entreprise/profilentreprise/profilentreprise.component';
+import { ProfilentrepriseResolver } from './utils/profilentreprise.resolver';
 import { ProfilsalarieComponent } from './components/salarie/profilsalarie/profilsalarie.component';
+import { ProfilsalarieResolver } from './utils/profilsalarie.resolver';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -36,7 +38,7 @@ const routes: Routes = [
         path: 'profil', component: ProfilentrepriseComponent
       },
       {
-        path: 'createcontrat', component: CreatecontratComponent
+        path: 'createcontrat', component: CreatecontratComponent, resolve:{data : ProfilentrepriseResolver}
       }]
   },
 ];

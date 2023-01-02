@@ -18,6 +18,7 @@ export class ProfilentrepriseComponent implements OnInit {
 
   ngOnInit(): void {
     this._globalService.getProfilEntreprise().subscribe((response: any) => {
+console.log(response);
 
       this.profilEntreprise = response
     })

@@ -16,6 +16,7 @@ export class LoginsalarieComponent implements OnInit {
   salarieRegisterForm!: FormGroup;
   salarie = new SalarieModel();
   errorPass = true
+  hide = true;
 
   constructor(private _fb: FormBuilder,
     private _route: Router,
