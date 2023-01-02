@@ -9,6 +9,7 @@ import { ContratentrepriseComponent } from './components/entreprise/contratentre
 import { CreatecontratComponent } from './components/entreprise/createcontrat/createcontrat.component';
 import { EditprofilentrepriseComponent } from './modales/editprofilentreprise/editprofilentreprise.component';
 import { EditprofilsalarieComponent } from './modales/editprofilsalarie/editprofilsalarie.component';
+import { FileUploadModule } from 'ng2-file-upload';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginentrepriseComponent } from './components/entreprise/loginentreprise/loginentreprise.component';
@@ -62,7 +63,8 @@ import { TokenInterceptorProvider } from './utils/token.interceptor';
     MatIconModule,
     MatCheckboxModule,
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    FileUploadModule,
   ],
   providers: [TokenInterceptorProvider],
   bootstrap: [AppComponent]

@@ -3,6 +3,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { GlobalService } from 'src/app/services/global.service';
 import * as html2pdf from "html2pdf.js"
+import * as html2canvas from 'html2canvas';
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-confirmcontrat',
