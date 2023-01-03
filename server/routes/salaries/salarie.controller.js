@@ -93,7 +93,7 @@ exports.oneSalarie = async (req, res) => {
     const { id } = req.params
     try {
         const oneSalarie = await pool.query("SELECT * FROM salarie WHERE id_salarie=$1", [id]);
-        res.json(oneSalarie.rows);
+        res.json(oneSalarie.rows[0]);
     } catch (error) {
         console.log(error.message);
     }

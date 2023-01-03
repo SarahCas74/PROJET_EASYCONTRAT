@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./overviewentreprise.component.scss']
 })
 export class OverviewentrepriseComponent implements OnInit {
-  profilEntreprise= new EntrepriseModel;
+  profilEntreprise = new EntrepriseModel;
   constructor(private _globalService: GlobalService, private matdialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
@@ -31,24 +31,24 @@ export class OverviewentrepriseComponent implements OnInit {
     //Fermer une modal
     dialogRef.afterClosed().subscribe((updatedProfil: any) => {
 
-        this.profilEntreprise = updatedProfil.data
+      this.profilEntreprise = updatedProfil.data
     })
   }
 
   //déconnexion
-  onLogOut(){
+  onLogOut() {
     this._globalService.clearToken()
   }
 
-  onMonProfil(){
+  onMonProfil() {
     this.router.navigate(['/entreprise/profil'])
   }
 
-  onMesContrats(){
+  onMesContrats() {
     this.router.navigate(['/entreprise/contrat'])
   }
 
-    onCreateContrat(){
+  onCreateContrat() {
     this.router.navigate(['/entreprise/createcontrat'])
   }
 

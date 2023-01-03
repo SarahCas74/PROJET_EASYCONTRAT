@@ -2,7 +2,7 @@
     <h2 style="text-align:center">Créer un contrat</h2>
     <form [formGroup]="createContratForm" (ngSubmit)="onSubmitCreate(createContratForm)" class="formulaire">
 
-        <div style="display:flex;flex-direction:column;margin:5px">
+        <!-- <div style="display:flex;flex-direction:column;margin:5px">
             <h3>Profil entreprise</h3>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label for="">Raison sociale</mat-label>
@@ -49,7 +49,7 @@
                 <input matInput formControlName="fk_entreprise">
             </mat-form-field>
 
-        </div>
+        </div> -->
 
 
 
@@ -64,7 +64,7 @@
                     </option>
                 </select>
 
-                <div *ngIf="infoSalarie">
+                <!-- <div *ngIf="infoSalarie">
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label for="">Nom</mat-label>
                         <input matInput [value]="infoSalarie.nom_salarie" formControlName="nom_salarie" readonly>
@@ -106,7 +106,7 @@
                     </mat-form-field>
 
 
-                </div>
+                </div> -->
             </div>
         </div>
 

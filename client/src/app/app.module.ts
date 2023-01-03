@@ -16,6 +16,7 @@ import { LoginentrepriseComponent } from './components/entreprise/loginentrepris
 import { LoginsalarieComponent } from './components/salarie/loginsalarie/loginsalarie.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
@@ -24,12 +25,14 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OverviewentrepriseComponent } from './components/entreprise/overviewentreprise/overviewentreprise.component';
 import { OverviewsalarieComponent } from './components/salarie/overviewsalarie/overviewsalarie.component';
 import { ProfilentrepriseComponent } from './components/entreprise/profilentreprise/profilentreprise.component';
 import { ProfilsalarieComponent } from './components/salarie/profilsalarie/profilsalarie.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptorProvider } from './utils/token.interceptor';
+import { DetailcontratComponent } from './modales/detailcontrat/detailcontrat.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,7 @@ import { TokenInterceptorProvider } from './utils/token.interceptor';
     ContratentrepriseComponent,
     CreatecontratComponent,
     ConfirmcontratComponent,
+    DetailcontratComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +69,8 @@ import { TokenInterceptorProvider } from './utils/token.interceptor';
     MatAutocompleteModule,
     MatSelectModule,
     FileUploadModule,
+    MatCardModule,
+    NgbModule
   ],
   providers: [TokenInterceptorProvider],
   bootstrap: [AppComponent]

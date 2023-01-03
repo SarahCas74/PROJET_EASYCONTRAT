@@ -9,16 +9,15 @@ routeContrat
 .post('/',createContrat)
 
 //read la liste de toutes le contrats
-.get(listContrat)
+.get('/listecontrats',listContrat)
 
-routeContrat.route('/:id')
 //read le contrat
-.get(oneContrat)
+.get('/onecontrat',oneContrat)
 
 //delete le contrat
-.delete(deleteContrat)
+.delete('/deletecontrat/:id',deleteContrat)
 
 //update les informations contrat
-.put(updateContrat)
+.put('/updatecontrat',updateContrat)
 
 module.exports = routeContrat;

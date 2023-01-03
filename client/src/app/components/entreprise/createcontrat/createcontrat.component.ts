@@ -44,7 +44,7 @@ export class CreatecontratComponent implements OnInit {
   //récupérer la liste des salariés
   listeSalarie!: any
 
-  //récupérer lr profil d'un salarié
+  //récupérer le profil d'un salarié
   infoSalarie!: any
 
   // Pour le selected et options
@@ -75,7 +75,6 @@ export class CreatecontratComponent implements OnInit {
 
   ngOnInit(): void {
 
-
     //Resolver
     // récupérer le profil entreprise
     this._activatedRoute.data.subscribe(({ data }) => {
@@ -85,8 +84,6 @@ export class CreatecontratComponent implements OnInit {
       this._globalService.getListSalarie().subscribe((response: any) => {
         this.listeSalarie = response
       })
-
-
 
       //formulaire du contrat
       this.createContratForm = this._fb.group({
@@ -103,6 +100,7 @@ export class CreatecontratComponent implements OnInit {
         statut: [(''), Validators.required],
         is_fullTime: false,
         fk_entreprise: [this.profilEntreprise.id_entreprise, Validators.required],
+
         //partie entreprise
         nom_entreprise: this.profilEntreprise.nom_entreprise,
         prenom_entreprise: this.profilEntreprise.prenom_entreprise,
@@ -128,7 +126,7 @@ export class CreatecontratComponent implements OnInit {
 
     this.createContratForm.valueChanges.subscribe((value: any) => {
       this._globalService.getProfilOneSalarie(value.fk_salarie).subscribe((profilSalarie: any) => {
-        this.infoSalarie = profilSalarie[0]
+        this.infoSalarie = profilSalarie
         value.nom_salarie = this.infoSalarie.nom_salarie
         value.prenom_salarie = this.infoSalarie.prenom_salarie
         value.rue_salarie = this.infoSalarie.rue_salarie
@@ -143,10 +141,7 @@ export class CreatecontratComponent implements OnInit {
 
   }
 
-
-
-
-
+  //Bouton créer le contrat qui ouvre la modale
   onSubmitCreate(item: any) {
 
     Object.assign(this.contrat, this.createContratForm.value)
@@ -160,24 +155,8 @@ export class CreatecontratComponent implements OnInit {
         height: '60vh',
         data: item
       })
-      //Fermer une modal
-
-
     })
-
-
-
-
-
-
-
-
-
-
-
   }
-
-
 
 
 }

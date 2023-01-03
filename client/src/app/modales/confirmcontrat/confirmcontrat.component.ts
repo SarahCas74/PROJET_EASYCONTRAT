@@ -5,6 +5,7 @@ import { GlobalService } from 'src/app/services/global.service';
 import * as html2pdf from "html2pdf.js"
 import * as html2canvas from 'html2canvas';
 import * as jsPDF from 'jspdf';
+import { FileUploader } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-confirmcontrat',
@@ -15,10 +16,19 @@ export class ConfirmcontratComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,
   private _ref: MatDialogRef<any>, private _globalService: GlobalService, private _route:Router) { }
+  urlApi: string = 'http://127.0.0.1:5000/upload'
+  uploader: FileUploader = new FileUploader({
+    url: this.urlApi,
+    itemAlias: 'document'
+  });
 
   ngOnInit(): void {
     console.log(this.data.value);
-    
+    this.uploader.onAfterAddingFile = (fichier: any) => {
+    }
+
+    this.uploader.onCompleteItem = (fichier: any) => {
+    }
   }
 
   

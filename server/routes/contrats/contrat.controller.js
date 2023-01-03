@@ -51,9 +51,8 @@ exports.listContrat = async (req, res) => {
 
 exports.oneContrat = async (req, res) => {
     try {
-        const { id } = req.params; //récupère :id
-        const onecontrat = await pool.query("SELECT * FROM contrat WHERE id_contrat = $1", [id]);
-        res.json(onecontrat.rows[0]);
+        const oneContrat = await pool.query("SELECT * FROM entreprise INNER JOIN contrat on entreprise.id_entreprise=contrat.fk_entreprise");
+        res.json(oneContrat.rows);
     } catch (error) {
         console.log(error.message);
     }

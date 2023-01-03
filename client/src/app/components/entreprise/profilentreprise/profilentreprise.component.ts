@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { EditprofilentrepriseComponent } from 'src/app/modales/editprofilentreprise/editprofilentreprise.component';
 import { EntrepriseModel } from 'src/app/models/entreprise-model';
+import { FileUploader } from 'ng2-file-upload';
 import { GlobalService } from 'src/app/services/global.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -14,13 +15,36 @@ import { Router } from '@angular/router';
 export class ProfilentrepriseComponent implements OnInit {
   profilEntreprise = new EntrepriseModel;
 
+  urlApi: string = 'http://127.0.0.1:5000/upload'
+  uploader: any = "";
+  uploaderlogo: any = "";
   constructor(private _globalService: GlobalService, private matdialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
-    this._globalService.getProfilEntreprise().subscribe((response: any) => {
-console.log(response);
 
+
+
+    //récupérer le profil de l'entreprise
+    this._globalService.getProfilEntreprise().subscribe((response: any) => {
       this.profilEntreprise = response
+      //ajouter l'extension au fichier uploadé
+      this.uploader = new FileUploader({
+        url: this.urlApi,
+        headers: [{ name: 'nomEntreprise', value: this.profilEntreprise.nom_entreprise }, {name : 'typeimage', value: 'signature'}],
+        itemAlias: 'document'
+      });
+
+      this.uploaderlogo = new FileUploader({
+        url: this.urlApi,
+        headers: [{ name: 'nomEntreprise', value: this.profilEntreprise.nom_entreprise }, {name : 'typeimage', value: 'logo'}],
+        itemAlias: 'document'
+      });
+
+      //fichier uploadé
+      this.uploader.onAfterAddingFile = (fichier: any) => {
+      }
+      this.uploader.onCompleteItem = (fichier: any) => {
+      }
     })
   }
 
@@ -34,9 +58,9 @@ console.log(response);
     //Fermer une modal
     dialogRef.afterClosed().subscribe((updatedProfil: any) => {
 
-        this.profilEntreprise = updatedProfil.data
+      this.profilEntreprise = updatedProfil.data
     })
   }
-  
+
 
 }

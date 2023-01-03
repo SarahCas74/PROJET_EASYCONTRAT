@@ -78,4 +78,15 @@ export class GlobalService {
     return this._http.post(this.backend + "/contrat", createContratForm)
   }
 
+  //liste des contrats
+  getoneContrat(): Observable<any> {
+    return this._http.get(this.backend + "/contrat/onecontrat")
+  }
+
+  //supprimer un contrat
+  deleteContrat(id: any):Observable<any>{
+    return this._http.delete(this.backend +'/contrat/deletecontrat/' + id)
+  }
+
+
 }

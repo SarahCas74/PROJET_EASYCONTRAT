@@ -26,7 +26,7 @@ export class EditprofilentrepriseComponent implements OnInit {
       raison_sociale: this.data.raison_sociale,
       code_ape: this.data.code_ape,
       email_entreprise: this.data.email_entreprise,
-      mdp_entreprise: this.data.mdp_entreprise,
+      mdp_entreprise: '',
     })
   }
 

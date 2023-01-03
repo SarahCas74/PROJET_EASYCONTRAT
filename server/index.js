@@ -4,6 +4,7 @@ const cors = require("cors"); //cross origin ressource sharing, permet de recevo
 const myRouterSalarie = require("./routes/salaries/salarie.router")
 const myRouterEntreprise = require("./routes/entreprises/entreprise.router")
 const myRouterContrat = require("./routes/contrats/contrat.router")
+const fs = require('fs')
 
 //middleware = intermédiaire
 app.use(cors({
@@ -30,21 +31,44 @@ app.use(express.urlencoded({
 app.use('/documents', express.static(__dirname + '/uploads'))
 
 
-let storageAdmin = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, dossierUpload)
-    },
-    filename: (req, file, cb) => {
-        cb(null, Buffer.from(file.originalname, 'latin1').toString('utf8'))
-    },
-})
+// let storageAdmin = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, dossierUpload)
+//     },
+//     filename: (req, file, cb) => {
+//         console.log(file);
+//         cb(null, Buffer.from(file.originalname, 'latin1').toString('utf8'))
+//     },
+// })
+
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        console.log(file);
-        cb(null, dossierUpload)
+        let nomEntreprise = req.headers.nomentreprise
+        const path = dossierUpload + '/' + nomEntreprise
+        fs.mkdirSync(path, { recursive: true })
+        cb(null, dossierUpload + '/' + nomEntreprise)
     },
     filename: (req, file, cb) => {
-        cb(null, Buffer.from(file.originalname, 'latin1').toString('utf8'))
+        let extension = file.originalname.match(/\.[0-9a-z]+$/i)[0]
+        let nomEntreprise = req.headers.nomentreprise
+if (req.headers.typeimage=='signature') {
+
+
+    cb(null, Buffer.from ('signature' + extension, 'latin1').toString('utf8'))
+
+    
+}
+else if (req.headers.typeimage == 'logo'){
+
+    cb(null, Buffer.from ('logo' + extension, 'latin1').toString('utf8'))
+    
+}
+
+else{
+    cb(null, Buffer.from (file.originalname, 'latin1').toString('utf8'))
+    
+}
+        // cb(null, Buffer.from (Date.now()+'signature' + extension, 'latin1').toString('utf8'))
     },
 })
 
@@ -59,19 +83,21 @@ app.post('/upload', upload.single('document'), (req, res) => {
         return res.send({ success: false })
     } else {
         console.log('le fichier est uploadé');
-        sharp(req.file.path).resize(200, 200).toFile('thumb-' + req.file.originalname, (err, resizeImage) => {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log(resizeImage);
-            }
-        })
+        // sharp(req.file.path).resize(200, 200).toFile('thumb-' + req.file.originalname, (err, resizeImage) => {
+        //     if (err) {
+        //         console.log(err);
+        //     } else {
+        //         console.log(resizeImage);
+        //     }
+        // })
         return res.send({ success: true })
     }
 
 
 })
 
+
+app.use('/signatureentreprise', express.static(__dirname + '/uploads'));
 
 //écouter sur le serveur
 app.listen(5000, () => {

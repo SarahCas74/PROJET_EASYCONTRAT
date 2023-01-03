@@ -1,21 +1,41 @@
 <div class="content">
-<div class="profilEntreprise">
+  <div class="profilEntreprise">
     <h2>Mon Profil</h2>
-
     <ul>
-      <li>Nom : {{profilEntreprise.nom_entreprise}} </li>
-      <li>Prénom : {{profilEntreprise.prenom_entreprise}}</li>
-      <li>Téléphone : {{profilEntreprise.telephone_entreprise}}</li>
-      <li>Rue : {{profilEntreprise.rue_entreprise}}</li>
-      <li>Code postal : {{profilEntreprise.cp_entreprise}}</li>
-      <li> Ville : {{profilEntreprise.ville_entreprise}}</li>
-      <li>Siret : {{profilEntreprise.siret}}</li>
-      <li>Code APE : {{profilEntreprise.code_ape}}</li>
-      <li>Raison Sociale : {{profilEntreprise.raison_sociale}}</li>
-      <li>E mail : {{profilEntreprise.email_entreprise}}</li>
+      <li><strong>Raison Sociale : </strong>{{profilEntreprise.raison_sociale}}</li>
+      <li><strong>Nom :</strong> {{profilEntreprise.nom_entreprise}} </li>
+      <li><strong>Prénom : </strong>{{profilEntreprise.prenom_entreprise}}</li>
+      <li><strong>Téléphone : </strong>{{profilEntreprise.telephone_entreprise}}</li>
+      <li><strong>Rue :</strong> {{profilEntreprise.rue_entreprise}}</li>
+      <li><strong>Code postal :</strong> {{profilEntreprise.cp_entreprise}}</li>
+      <li> <strong>Ville : </strong>{{profilEntreprise.ville_entreprise}}</li>
+      <li><strong>Siret : </strong>{{profilEntreprise.siret}}</li>
+      <li><strong>Code APE : </strong>{{profilEntreprise.code_ape}}</li>
+      <li><strong>E mail : </strong>{{profilEntreprise.email_entreprise}}</li>
       <button (click)="editModal(profilEntreprise)" mat-mini-fab color="primary">
         <mat-icon>edit</mat-icon>
       </button>
     </ul>
   </div>
+
+  <div class="signature_logo">
+    <div class="signatureentreprise">
+      <h2>Ma signature</h2>
+      <img [src]=' "http://localhost:5000/signatureentreprise/"+profilEntreprise.nom_entreprise+"/signature.jpg" '
+        alt="">
+      <input type="file" name="document" ng2FileSelect [uploader]="uploader" accept="*" />
+      <button type="button" (click)="uploader.uploadAll()"
+        [disabled]="!uploader.getNotUploadedItems().length">upload</button>
+    </div>
+    <div class="logo">
+      <h2>Mon logo</h2>
+      <img [src]=' "http://localhost:5000/signatureentreprise/"+profilEntreprise.nom_entreprise+"/logo.jpg" ' alt="">
+      <input type="file" name="document" ng2FileSelect [uploader]="uploaderlogo" accept="*" />
+
+      <button type="button" (click)="uploaderlogo.uploadAll()"
+        [disabled]="!uploaderlogo.getNotUploadedItems().length">upload</button>
+    </div>
+
+  </div>
+
 </div>
