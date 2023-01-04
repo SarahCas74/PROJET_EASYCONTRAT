@@ -40,10 +40,8 @@ export class DetailcontratComponent implements OnInit {
     this._globalService.getProfilOneSalarie(this.data.fk_salarie).subscribe((response: any) => {
 
       this.profilSalarie = response
-      console.log(this.profilSalarie);
-
-
     })
+   
   }
 
   downloadDOCX() {
@@ -88,7 +86,6 @@ export class DetailcontratComponent implements OnInit {
       jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
 
-    // New Promise-based usage:
     html2pdf().from(element).set(opt).save();
   }
 
