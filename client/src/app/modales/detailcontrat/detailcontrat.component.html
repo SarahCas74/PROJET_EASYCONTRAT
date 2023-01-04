@@ -12,7 +12,7 @@
 
 <body>
     <div *ngIf="data" class=contrat id="text">
-        <img class=img_logo [src]=' "http://localhost:5000/signatureentreprise/"+data.nom_entreprise+"/logo.jpg" '
+        <img class=img_logo [src]=' "http://https://easycontrat-back.onrender.com/signatureentreprise/"+data.nom_entreprise+"/logo.jpg" '
             alt="">
 
         <h1>Contrat de travail</h1>
@@ -93,7 +93,7 @@
             <div>
                 <div>{{data.nom_entreprise}} {{data.prenom_entreprise}}</div>
                 <img class="img_signature"
-                    [src]=' "http://localhost:5000/signatureentreprise/"+data.nom_entreprise+"/signature.jpg" ' alt="">
+                    [src]=' "https://easycontrat-back.onrender.com/signatureentreprise/"+data.nom_entreprise+"/signature.jpg" ' alt="">
             </div>
             <div> {{profilSalarie.nom_salarie}} {{profilSalarie.prenom_salarie}}</div>
         </div>

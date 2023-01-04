@@ -16,7 +16,7 @@ export class ConfirmcontratComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,
   private _ref: MatDialogRef<any>, private _globalService: GlobalService, private _route:Router) { }
-  urlApi: string = 'http://127.0.0.1:5000/upload'
+  urlApi: string = 'https://easycontrat-back.onrender.com/upload'
   uploader: FileUploader = new FileUploader({
     url: this.urlApi,
     itemAlias: 'document'

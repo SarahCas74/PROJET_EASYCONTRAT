@@ -17,7 +17,7 @@ import { startWith } from 'rxjs';
   styleUrls: ['./contratentreprise.component.scss']
 })
 export class ContratentrepriseComponent implements OnInit {
-  urlApi: string = 'http://127.0.0.1:5000/upload'
+  urlApi: string = 'https://easycontrat-back.onrender.com/upload'
   uploader: FileUploader = new FileUploader({
     url: this.urlApi,
     itemAlias: 'document'

@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class ProfilentrepriseComponent implements OnInit {
   profilEntreprise = new EntrepriseModel;
 
-  urlApi: string = 'http://127.0.0.1:5000/upload'
+  urlApi: string = 'https://easycontrat-back.onrender.com/upload'
   uploader: any = "";
   uploaderlogo: any = "";
   constructor(private _globalService: GlobalService, private matdialog: MatDialog, private router: Router) { }
