@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class GlobalService {
 
-  backend = 'http://127.0.0.1:5000';
+  backend = 'https://easycontrat-back.onrender.com';
   constructor(private _http: HttpClient, private router: Router) { }
 
   //Récupérer le token
