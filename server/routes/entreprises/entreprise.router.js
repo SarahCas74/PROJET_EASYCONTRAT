@@ -19,7 +19,7 @@ routeEntreprise
 .get('/profil', getProfil )
 
 //read la liste de toutes les entreprises
-.get('/',listEntreprise)
+.get('/listeentreprises',listEntreprise)
 
 //update les informations salariés
 .put('/update',putUpdateEntreprise)

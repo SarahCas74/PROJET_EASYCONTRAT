@@ -73,6 +73,11 @@ export class GlobalService {
     return this._http.get(this.backend + "/entreprise/listesalaries")
   }
 
+  //liste des entreprises
+  getListEntreprise(): Observable<any> {
+    return this._http.get(this.backend + "/entreprise/listeentreprises")
+  }
+
   // créer un contrat
   createContrat(createContratForm: any): Observable<any> {
     return this._http.post(this.backend + "/contrat", createContratForm)

@@ -1,2 +1,23 @@
+<h1>Gestion de mes Contrats</h1>
 
-<p>contrat works!</p>
+<!-- Search Bar -->
+<div class="search_box">
+ 
+      <input matInput type="search" placeholder="Recherchez un contrat..." class="search" [formControl]="searchBar" />
+
+  </div>
+
+<div *ngFor="let item of contratTab">
+    <mat-card *ngIf="infoSalarie.id_salarie==item.fk_salarie">
+        <div *ngFor="let entreprise of profilEntreprise">
+            <mat-card-title *ngIf="entreprise.id_entreprise==item.fk_entreprise">{{entreprise.raison_sociale}}</mat-card-title>
+        </div>
+        <mat-card-subtitle> Fonction : {{item.fonction}}</mat-card-subtitle>
+        <mat-card-subtitle> ID du contrat : {{item.id_contrat}}</mat-card-subtitle>
+        <mat-card-actions>
+            <button mat-button color="primary" (click)="detailsContrat(item)">Details </button>
+            <button mat-button color="accent" (click)="deleteContrat(item.id_contrat)">Supprimer</button>
+          
+        </mat-card-actions>
+    </mat-card>
+</div>

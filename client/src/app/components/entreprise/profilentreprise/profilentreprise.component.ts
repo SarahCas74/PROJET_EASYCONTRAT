@@ -16,8 +16,8 @@ export class ProfilentrepriseComponent implements OnInit {
   profilEntreprise = new EntrepriseModel;
 
   urlApi: string = 'https://easycontrat-back.onrender.com/upload'
-  uploader: any = "";
-  uploaderlogo: any = "";
+  uploader: any = new FileUploader({});
+  uploaderlogo: any = new FileUploader({});
   constructor(private _globalService: GlobalService, private matdialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
@@ -30,13 +30,13 @@ export class ProfilentrepriseComponent implements OnInit {
       //ajouter l'extension au fichier uploadé
       this.uploader = new FileUploader({
         url: this.urlApi,
-        headers: [{ name: 'nomEntreprise', value: this.profilEntreprise.nom_entreprise }, {name : 'typeimage', value: 'signature'}],
+        headers: [{ name: 'nomEntreprise', value: this.profilEntreprise.nom_entreprise }, { name: 'typeimage', value: 'signature' }],
         itemAlias: 'document'
       });
 
       this.uploaderlogo = new FileUploader({
         url: this.urlApi,
-        headers: [{ name: 'nomEntreprise', value: this.profilEntreprise.nom_entreprise }, {name : 'typeimage', value: 'logo'}],
+        headers: [{ name: 'nomEntreprise', value: this.profilEntreprise.nom_entreprise }, { name: 'typeimage', value: 'logo' }],
         itemAlias: 'document'
       });
 
