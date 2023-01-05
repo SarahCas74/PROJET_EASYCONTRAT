@@ -6,6 +6,7 @@ const pool = new Pool ({
     host : "dpg-ceqoluqrrk0bsuj5tc2g-a.frankfurt-postgres.render.com",
 
     port : 5432,
-    database : "easycontract"
+    database : "easycontract",
+    ssl:true
 });
 module.exports = pool; //exporter pool
