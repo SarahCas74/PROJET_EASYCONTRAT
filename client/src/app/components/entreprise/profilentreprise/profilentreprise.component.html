@@ -21,7 +21,7 @@
   <div class="signature_logo">
     <div class="signatureentreprise">
       <h2>Ma signature</h2>
-      <img [src]=' "https://easycontrat-back.onrender.com"+profilEntreprise.nom_entreprise+"/signature.jpg" '
+      <img [src]=' "https://easycontrat-back.onrender.com/documents/"+profilEntreprise.nom_entreprise+"/signature.jpg" '
         alt="">
       <input type="file" name="document" ng2FileSelect [uploader]="uploader" accept="*" />
       <button type="button" (click)="uploader.uploadAll()"
@@ -29,7 +29,7 @@
     </div>
     <div class="logo">
       <h2>Mon logo</h2>
-      <img [src]=' "https://easycontrat-back.onrender.com"+profilEntreprise.nom_entreprise+"/logo.jpg" ' alt="">
+      <img [src]=' "https://easycontrat-back.onrender.com/documents/"+profilEntreprise.nom_entreprise+"/logo.jpg" ' alt="">
       <input type="file" name="document" ng2FileSelect [uploader]="uploaderlogo" accept="*" />
 
       <button type="button" (click)="uploaderlogo.uploadAll()"
