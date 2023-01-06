@@ -1,7 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { GlobalService } from 'src/app/services/global.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-editprofilentreprise',
@@ -10,9 +12,11 @@ import { GlobalService } from 'src/app/services/global.service';
 })
 export class EditprofilentrepriseComponent implements OnInit {
   updatedProfilForm!: FormGroup;
+  errorPass = true
+  hide = true;
   
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-  private _ref: MatDialogRef<any>, private _globalService: GlobalService, private _fb: FormBuilder) { }
+  private _ref: MatDialogRef<any>, private _globalService: GlobalService, private _fb: FormBuilder, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.updatedProfilForm = this._fb.group({
@@ -26,15 +30,20 @@ export class EditprofilentrepriseComponent implements OnInit {
       raison_sociale: this.data.raison_sociale,
       code_ape: this.data.code_ape,
       email_entreprise: this.data.email_entreprise,
-      mdp_entreprise: '',
+      mdp_entreprise: [(''), Validators.required],
+      confirmPassword: [(''), Validators.required]
     })
   }
 
-  closeModal() {
-    this._ref.close();
-  }
-
   onEdit(entreprise: any) {
+    //CONFIRM PASSWORD
+    const password = this.updatedProfilForm.value.mdp_entreprise
+    const confirmPassword = this.updatedProfilForm.value.confirmPassword
+
+    if (password !== confirmPassword) {
+      this._snackBar.open('Vos mots de passes ne correspondent pas', 'ok', { verticalPosition: 'top' })
+      return;
+    }
     this._globalService.updateProfilEntreprise(entreprise.id_entreprise, this.updatedProfilForm.value).subscribe((response) => {
 
 

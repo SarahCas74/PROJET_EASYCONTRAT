@@ -1,83 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Document</title>
 </head>
+
 <body>
     <div *ngIf="data.value" class=contrat id="text">
+        <img class=img_logo
+            [src]=' "https://easycontrat-back.onrender.com/documents/"+data.nom_entreprise+"/logo.jpg" '
+            alt="">
+
         <h1>Contrat de travail</h1>
         <h2>{{data.value.type_}}</h2>
-    
+
         <h3> Entre la société</h3>
         <p>
             {{data.value.raison_sociale}} <br>
             {{data.value.rue_entreprise}} <br>
             {{data.value.cp_entreprise}} {{data.value.ville_entreprise}}<br>
-    
-           Siret : {{data.value.siret}} Code APE : {{data.value.code_ape}}
+
+            Siret : {{data.value.siret}} Code APE : {{data.value.code_ape}}
         </p>
-    
+
         <h3> Etablissement </h3>
         <p>
             {{data.value.raison_sociale}} <br>
             {{data.value.rue_entreprise}} <br>
             {{data.value.cp_entreprise}} {{data.value.ville_entreprise}}<br>
-    
+
             {{data.value.siret}} {{data.value.code_ape}}
         </p>
-    
+
+        <p>Ce contrat travail a fait l'objet d'une déclaration unique d'embauche auprès de
+            cette URSSAF.</p>
+
         <h3>Représenté par</h3>
         {{data.value.nom_entreprise}} {{data.value.prenom_entreprise}}
-    
+
+        <p>D'une part,</p>
+
         <h3>Et le collaborateur</h3>
         <p>
-            {{data.value.id_salarie}}
             {{data.value.nom_salarie}} {{data.value.prenom_salarie}} <br>
             {{data.value.rue_salarie}} <br>
             {{data.value.cp_salarie}} {{data.value.ville_salarie}} <br>
-            né(e) le : {{data.value.date_naissance | date: "dd/mm/yyyy"}} à {{data.value.lieu_naissance}} <br>
+            né(e) le : {{data.value.date_naissance | date: "dd/MM/yyyy"}} à {{data.value.lieu_naissance}} <br>
             Numéro SS : {{data.value.num_ss}}
         </p>
-    
-        <h3>Données du contrat</h3>
-    
-        <p>Date d'entrée en entreprise : {{data.value.date_debut | date: "dd/mm/yyyy" }}</p>
-        <p>Date de fin de contrat : {{data.value.date_fin | date: "dd/mm/yyyy"}}</p>
-        <p>Motif : {{data.value.motif}}</p>
-    
-        <p>Période d'essai jusqu'au : {{data.value.fin_periode_essai | date: "dd/mm/yyyy"}} inclus </p>
-    
-        <p>Fonction : {{data.value.fonction}}</p>
-        <p>Statut : {{data.value.statut}}</p>
-        <p> Rémunération : {{data.value.remuneration}} € brut</p>
-    
-    
-        <p>Fait à {{data.value.ville_entreprise}} </p>
-        <p>Le {{data.value.date_debut  | date: "dd/mm/yyyy"}}</p>
-        <p>En double exemplaire</p>
-        
-        <p>        Signature</p>
-        
+
+        <p>D’autre part,</p>
+
+        <h3>IL EST CONVENU CE QUI SUIT :</h3>
+
+        <div class="donnees_contrat">
+
+            <p>Type de contrat : {{data.value.type_}}</p>
+            <p>Date d'entrée en entreprise : {{data.value.date_debut | date: "dd/MM/yyyy" }}</p>
+            <p>Date de fin de contrat : {{data.value.date_fin | date: "dd/MM/yyyy"}}</p>
+            <p>Motif : {{data.value.motif}}</p>
+
+            <p>Période d'essai jusqu'au : {{data.value.fin_periode_essai | date: "dd/MM/yyyy"}} inclus </p>
+
+            <p>Fonction : {{data.value.fonction}}</p>
+            <p>Une polyvalence sur les autres secteurs d’activité est demandée en
+                fonction des éventuelles nécessités du service.</p>
+            <p>Statut : {{data.value.statut}}</p>
+            <p> Rémunération : {{data.value.remuneration}} € brut</p>
+
+            <p *ngIf="data.value.is_fullTime==true">Durée du travail : Temps partiel</p>
+            <p *ngIf="data.value.is_fullTime==false">Durée du travail : Temps plein <br>
+                Horaires de travail : 35,00 heures en moyenne par semaine soit 151,67 heures mois.
+            </p>
+            <p>Lieu de travail : Site Principal</p>
+
+            <p>Règlement intérieur : Le salarié reconnait en avoir pris connaissance.</p>
+
+
+            <p>Fait à {{data.value.ville_entreprise}} </p>
+            <p>Le {{data.value.date_debut | date: "dd/mm/yyyy"}}</p>
+            <p>En double exemplaire</p>
+
+        </div>
+        <p> Signature</p>
+
 
         <div class="signature">
-            <div>{{data.value.nom_entreprise}} {{data.value.prenom_entreprise}}</div>
-            <!-- <img [src]=' "https://easycontrat-back.onrender.com/signatureentreprise/"+data.value.nom_entreprise+"/signature.jpg" 'alt=""> -->
+            <div>
+                <div>{{data.value.nom_entreprise}} {{data.value.prenom_entreprise}}</div>
+                <img class="img_signature"
+                    [src]=' "https://easycontrat-back.onrender.com/documents/"+data.value.nom_entreprise+"/signature.jpg" '
+                    alt="">
+            </div>
+            <div>
+                <div> {{data.value.nom_salarie}} {{data.value.prenom_salarie}}</div>
+                <div class="signature_salarie"></div>
+            </div>
+            </div>
     
-            <div> {{data.value.nom_salarie}} {{data.value.prenom_salarie}}</div>
-        </div>
-      
-</div>
-        <div style="display:flex; align-items:center; justify-content:center">
-            <button mat-raised-button color="primary" (click)="downloadPDF();uploader.uploadAll()" ng2FileSelect [uploader]="uploader" >Télécharger en format PDF</button>
-            <button mat-raised-button color="primary" (click)="downloadDOCX()">Télécharger en format DOCX</button>
-        </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:center">
+        <button mat-raised-button color="primary" (click)="downloadPDF();uploader.uploadAll()" ng2FileSelect [uploader]="uploader">Télécharger en format PDF</button>
+        <button mat-raised-button color="primary" (click)="downloadDOCX()">Télécharger en format DOCX</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="node_modules/html2canvas/dist/html2canvas.min.js"></script>
     <script src="node_modules/jspdf/dist/jspdf.min.js"></script>
 </body>
+
 </html>

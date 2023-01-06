@@ -65,10 +65,31 @@
         </mat-form-field>
     </div>
 
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label for="">Mot de passe</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" class="form-control" formControlName="mdp_salarie">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label for="">Confirmer le Mot de passe</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" class="form-control" formControlName="confirmPassword">
+        <mat-error *ngIf="errorPass">
+        Vos mots de passe ne correspondent pas
+        </mat-error>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+    </mat-form-field>
+
     <div style="display:flex; align-items:center; justify-content:center">
-        <div><button mat-raised-button type="submit" color="primary">Edit</button> </div>
-        <div style="margin-left:10px"><button mat-raised-button color="primary" (click)="closeModal()">Close</button>
+        <div><button mat-raised-button type="submit" color="primary" [disabled]="updatedProfilForm.invalid">Edit</button> </div>
+    
         </div>
-    </div>
+
 
 </form>

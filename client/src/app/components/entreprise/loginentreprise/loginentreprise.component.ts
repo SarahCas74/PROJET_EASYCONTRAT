@@ -78,22 +78,12 @@ hide = true;
     }
 
     //requête register du service
-
     Object.assign(this.entreprise, this.entrepriseRegisterForm.value)
-    this._globalService.registerEntreprise(this.entreprise).subscribe((response: any) => {
-
-      localStorage.setItem('token', response.token)
-    },
-      (error) => {                              //Error callback
-        this._snackBar.open(error.error, 'ok', { verticalPosition: 'top' })
-
-      }
-    )
-
     const email_entreprise = { email: this.entreprise.email_entreprise }
-
     this._globalService.registerEntreprise(this.entreprise).subscribe((result: EntrepriseModel) => {
+    
       if (result) {
+        localStorage.setItem('token', result.token)
         localStorage.setItem('user', JSON.stringify(email_entreprise))
         this._route.navigate(['/entreprise/profil'])
       }

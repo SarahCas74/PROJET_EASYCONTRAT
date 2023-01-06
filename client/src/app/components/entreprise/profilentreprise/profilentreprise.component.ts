@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { EditprofilentrepriseComponent } from 'src/app/modales/editprofilentreprise/editprofilentreprise.component';
 import { EntrepriseModel } from 'src/app/models/entreprise-model';
 import { FileUploader } from 'ng2-file-upload';
 import { GlobalService } from 'src/app/services/global.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,7 +20,7 @@ export class ProfilentrepriseComponent implements OnInit {
   urlApi: string = 'https://easycontrat-back.onrender.com/upload'
   uploader: any = new FileUploader({});
   uploaderlogo: any = new FileUploader({});
-  constructor(private _globalService: GlobalService, private matdialog: MatDialog, private router: Router) { }
+  constructor(private _globalService: GlobalService, private matdialog: MatDialog, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
 
@@ -40,20 +42,41 @@ export class ProfilentrepriseComponent implements OnInit {
         itemAlias: 'document'
       });
 
-      //fichier uploadé
+      //fichier uploadé signature
       this.uploader.onAfterAddingFile = (fichier: any) => {
+        
       }
       this.uploader.onCompleteItem = (fichier: any) => {
+        this._snackBar.open('Votre fichier a bien été importé', 'ok', { verticalPosition: 'top' })
       }
+
+            //fichier uploadé logo
+      this.uploaderlogo.onAfterAddingFile = (fichier: any) => {
+        
+      }
+      this.uploaderlogo.onCompleteItem = (fichier: any) => {
+        this._snackBar.open('Votre fichier a bien été importé', 'ok', { verticalPosition: 'top' })
+      }
+
+
+
+
+
+
     })
   }
 
   //Editer le profil
   editModal(item: any) {
+    const modalOptions: MatDialogConfig = {
+      disableClose: true,
+    };
     //Ouvrir une modal
-    let dialogRef = this.matdialog.open(EditprofilentrepriseComponent, {
+    let dialogRef = this.matdialog.open(EditprofilentrepriseComponent,{
       width: '500px',
-      data: item
+      height:'80vh',
+      data: item,
+      ...modalOptions
     })
     //Fermer une modal
     dialogRef.afterClosed().subscribe((updatedProfil: any) => {

@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalService {
 
-  backend = 'https://easycontrat-back.onrender.com';
+  backend = `${environment.API_URL}`;
   constructor(private _http: HttpClient, private router: Router) { }
 
   //Récupérer le token

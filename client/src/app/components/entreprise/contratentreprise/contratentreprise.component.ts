@@ -56,9 +56,9 @@ export class ContratentrepriseComponent implements OnInit {
     // pour filtrer la liste des utilisateurs dans la searchBar
     //@ts-ignore
     this.searchBar.valueChanges.subscribe((resultSearch: any) => {
-        this.contratTab = this.contrat.filter((profilSalarie: any) => {
-          return profilSalarie.fonction.toLowerCase().includes(resultSearch.toLowerCase()) ||
-          profilSalarie.statut.toLowerCase().includes(resultSearch.toLowerCase())
+        this.contratTab = this.contrat.filter((infoContrat: any) => {
+          return infoContrat.nom_salarie.toLowerCase().includes(resultSearch.toLowerCase()) ||
+          infoContrat.prenom_salarie.toLowerCase().includes(resultSearch.toLowerCase())
         })
     })
 

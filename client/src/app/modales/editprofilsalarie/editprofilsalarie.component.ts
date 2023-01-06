@@ -1,7 +1,8 @@
 import { GlobalService } from 'src/app/services/global.service';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-editprofilsalarie',
@@ -10,9 +11,11 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class EditprofilsalarieComponent implements OnInit {
   updatedProfilForm!: FormGroup;
+  errorPass = true
+  hide = true;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-    private _ref: MatDialogRef<any>, private _globalService: GlobalService, private _fb: FormBuilder) { }
+    private _ref: MatDialogRef<any>, private _globalService: GlobalService, private _fb: FormBuilder, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
 
@@ -28,7 +31,8 @@ export class EditprofilsalarieComponent implements OnInit {
       lieu_naissance: this.data.lieu_naissance,
       nom_jeune_fille: this.data.nom_jeune_fille,
       email_salarie: this.data.email_salarie,
-      mdp_salarie: this.data.mdp_salarie,
+      mdp_salarie: [(''), Validators.required],
+      confirmPassword: [(''), Validators.required]
     })
 
 
@@ -39,6 +43,14 @@ export class EditprofilsalarieComponent implements OnInit {
   }
 
   onEdit(salarie: any) {
+    //CONFIRM PASSWORD
+    const password = this.updatedProfilForm.value.mdp_salarie
+    const confirmPassword = this.updatedProfilForm.value.confirmPassword
+
+    if (password !== confirmPassword) {
+      this._snackBar.open('Vos mots de passes ne correspondent pas', 'ok', { verticalPosition: 'top' })
+      return;
+    }
     this._globalService.updateProfil(salarie.id_salarie, this.updatedProfilForm.value).subscribe((response) => {
       console.log(response); //salarie was updated!
 

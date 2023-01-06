@@ -7,6 +7,7 @@ import { ConfirmcontratComponent } from './modales/confirmcontrat/confirmcontrat
 import { ContratComponent } from './components/salarie/contrat/contrat.component';
 import { ContratentrepriseComponent } from './components/entreprise/contratentreprise/contratentreprise.component';
 import { CreatecontratComponent } from './components/entreprise/createcontrat/createcontrat.component';
+import { DetailcontratComponent } from './modales/detailcontrat/detailcontrat.component';
 import { EditprofilentrepriseComponent } from './modales/editprofilentreprise/editprofilentreprise.component';
 import { EditprofilsalarieComponent } from './modales/editprofilsalarie/editprofilsalarie.component';
 import { FileUploadModule } from 'ng2-file-upload';
@@ -24,6 +25,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatStepperModule} from '@angular/material/stepper';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OverviewentrepriseComponent } from './components/entreprise/overviewentreprise/overviewentreprise.component';
@@ -32,7 +34,6 @@ import { ProfilentrepriseComponent } from './components/entreprise/profilentrepr
 import { ProfilsalarieComponent } from './components/salarie/profilsalarie/profilsalarie.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptorProvider } from './utils/token.interceptor';
-import { DetailcontratComponent } from './modales/detailcontrat/detailcontrat.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { DetailcontratComponent } from './modales/detailcontrat/detailcontrat.co
     MatSelectModule,
     FileUploadModule,
     MatCardModule,
-    NgbModule
+    NgbModule,
+    MatStepperModule
   ],
   providers: [TokenInterceptorProvider],
   bootstrap: [AppComponent]

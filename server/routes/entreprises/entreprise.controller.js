@@ -34,6 +34,7 @@ exports.createEntreprise = async (req, res) => {
             [email_entreprise]);
 
         entreprise = entreprise.rows[0]
+        console.log(entreprise);
 
 
         if (entreprise) {

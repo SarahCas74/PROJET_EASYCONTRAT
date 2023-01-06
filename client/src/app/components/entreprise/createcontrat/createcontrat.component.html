@@ -1,195 +1,117 @@
 <div class="createContrat">
     <h2 style="text-align:center">Créer un contrat</h2>
-    <form [formGroup]="createContratForm" (ngSubmit)="onSubmitCreate(createContratForm)" class="formulaire">
+    
+    <mat-stepper orientation="vertical" [linear]="false" #stepper>
+        <form [formGroup]="createContratForm" class="formulaire">
 
-        <!-- <div style="display:flex;flex-direction:column;margin:5px">
-            <h3>Profil entreprise</h3>
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label for="">Raison sociale</mat-label>
-                <input matInput formControlName="raison_sociale" readonly>
-            </mat-form-field>
+            <mat-step [stepControl]="createContratForm">
 
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label for="">Nom</mat-label>
-                <input matInput formControlName="nom_entreprise" readonly>
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label for="">Prénom</mat-label>
-                <input matInput formControlName="prenom_entreprise" readonly>
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label for="">Rue</mat-label>
-                <input matInput formControlName="rue_entreprise" readonly>
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label for="">Code Postal</mat-label>
-                <input matInput formControlName="cp_entreprise" readonly>
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label for="">Ville</mat-label>
-                <input matInput formControlName="ville_entreprise" readonly>
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label for="">Siret</mat-label>
-                <input matInput formControlName="siret" readonly>
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label for="">Code APE</mat-label>
-                <input matInput formControlName="code_ape" readonly>
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label for="">ID</mat-label>
-                <input matInput formControlName="fk_entreprise">
-            </mat-form-field>
-
-        </div> -->
-
-
-
-        <div>
-            <h3>Profil salarié</h3>
-            <div style='display:flex; flex-direction:column;width:204px;margin:5px'>
-
-                <mat-label for="">Nom et prénom du salarié</mat-label>
-                <select formControlName="fk_salarie" >
-                    <option *ngFor="let item of listeSalarie" [value]="item.id_salarie" >
+                <ng-template matStepLabel >Choisir un salarié</ng-template>
+                <select formControlName="fk_salarie">
+                    <option *ngFor="let item of listeSalarie" [value]="item.id_salarie">
                         {{item.nom_salarie}} {{item.prenom_salarie}}
                     </option>
                 </select>
 
-                <!-- <div *ngIf="infoSalarie">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label for="">Nom</mat-label>
-                        <input matInput [value]="infoSalarie.nom_salarie" formControlName="nom_salarie" readonly>
-                    </mat-form-field>
+                <button mat-button matStepperNext>Suivant</button>
+            </mat-step>
 
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label for="">Prénom</mat-label>
-                        <input matInput [value]="infoSalarie.prenom_salarie" formControlName="prenom_salarie" readonly>
-                    </mat-form-field>
-
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label for="">Rue</mat-label>
-                        <input matInput [value]="infoSalarie.rue_salarie" formControlName="rue_salarie" readonly>
-                    </mat-form-field>
-
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label for="">Code Postal</mat-label>
-                        <input matInput [value]="infoSalarie.cp_salarie" formControlName="cp_salarie" readonly>
-                    </mat-form-field>
-
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label for="">Ville</mat-label>
-                        <input matInput [value]="infoSalarie.ville_salarie" formControlName="ville_salarie" readonly>
-                    </mat-form-field>
-
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label for="">Numéro SS</mat-label>
-                        <input matInput [value]="infoSalarie.num_ss" formControlName="num_ss" readonly>
-                    </mat-form-field>
-
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label for="">Date de naissance</mat-label>
-                        <input matInput [value]="infoSalarie.date_naissance" formControlName="date_naissance" readonly>
-                    </mat-form-field>
-
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label for="">Lieu de naissance</mat-label>
-                        <input matInput [value]="infoSalarie.lieu_naissance" formControlName="lieu_naissance" readonly>
-                    </mat-form-field>
-
-
-                </div> -->
-            </div>
-        </div>
-
-        <div>
-            <h3>Données du contrat</h3>
-            <div style='display:flex; flex-direction:column;width:204px;margin:5px'>
+            <mat-step [stepControl]="createContratForm">
                 <mat-form-field appearance="fill">
-                    <mat-label for="">Type de contrat</mat-label>
+                    <ng-template matStepLabel for="">Type de contrat</ng-template>
                     <mat-select [formControl]="typeFormControl" formControlName="type_" ngDefaultControl>
                         <mat-option *ngFor="let type of types" [value]="type.value">
                             {{type.type}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
-            </div>
+                <button mat-button matStepperNext>Suivant</button>
+            </mat-step>
 
-            <div style='width:204px'>
+            <mat-step [stepControl]="createContratForm">
                 <mat-form-field appearance="fill">
-                    <mat-label>Date de début</mat-label>
+                    <ng-template matStepLabel>Date de début</ng-template>
                     <input matInput type="date" class="form-control" formControlName="date_debut">
                 </mat-form-field>
+                <button mat-button matStepperNext>Suivant</button>
+            </mat-step>
+
+            <div *ngIf="createContratForm.value.type_ == 'CDD' ">
+                <mat-step [stepControl]="createContratForm">
+                    <mat-form-field appearance="fill">
+                        <ng-template matStepLabel>Date de fin</ng-template>
+                        <input matInput type="date" class="form-control" formControlName="date_fin">
+                    </mat-form-field>
+                    <button mat-button matStepperNext>Suivant</button>
+                </mat-step>
             </div>
 
-            <div style='width:204px' *ngIf="createContratForm.value.type_ == 'CDD' ">
-                <mat-form-field appearance="fill">
-                    <mat-label>Date de fin</mat-label>
-                    <input matInput type="date" class="form-control" formControlName="date_fin">
-                </mat-form-field>
-            </div>
-
-            <mat-checkbox formControlName="is_fullTime"> <mat-label for="">Temps partiel ?</mat-label>
+            <mat-checkbox formControlName="is_fullTime"> <ng-template  for="">Temps partiel
+                    ?</ng-template>
             </mat-checkbox>
 
-
-            <div style='width:204px'>
+            <mat-step [stepControl]="createContratForm">
                 <mat-form-field appearance="fill">
-                    <mat-label>Fin de période d'essai</mat-label>
+                    <ng-template matStepLabel>Fin de période d'essai</ng-template>
                     <input matInput type="date" class="form-control" formControlName="periode_fin_essai">
                 </mat-form-field>
-            </div>
+                <button mat-button matStepperNext>Suivant</button>
+            </mat-step>
 
-            <div style='width:204px'>
+            <mat-step [stepControl]="createContratForm">
                 <mat-form-field appearance="fill">
-                    <mat-label for="">Rémunération</mat-label>
+                    <ng-template matStepLabel for="">Rémunération</ng-template>
                     <input matInput type="number" class="form-control" formControlName="remuneration">
                 </mat-form-field>
+                <button mat-button matStepperNext>Suivant</button>
+            </mat-step>
+
+            <div *ngIf="createContratForm.value.type_ == 'CDD' ">
+                <mat-step [stepControl]="createContratForm">
+                    <mat-form-field appearance="fill">
+                        <ng-template matStepLabel  for="">Motif</ng-template>
+                        <mat-select [formControl]="motifFormControl" formControlName="motif" ngDefaultControl>
+                            <mat-option *ngFor="let motif of motifs" [value]="motif.value">
+                                {{motif.motif}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <button mat-button matStepperNext>Suivant</button>
+                </mat-step>
             </div>
 
-            <div style='display:flex; flex-direction:column;width:204px'
-                *ngIf="createContratForm.value.type_ == 'CDD' ">
+            <mat-step [stepControl]="createContratForm">
                 <mat-form-field appearance="fill">
-                    <mat-label for="">Motif</mat-label>
-                    <mat-select [formControl]="motifFormControl" formControlName="motif" ngDefaultControl>
-                        <mat-option *ngFor="let motif of motifs" [value]="motif.value">
-                            {{motif.motif}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-
-            <div style='width:204px'>
-                <mat-form-field appearance="fill">
-                    <mat-label for="">Fonction</mat-label>
+                    <ng-template  matStepLabel for="">Fonction</ng-template>
                     <input matInput type="text" class="form-control" formControlName="fonction">
                 </mat-form-field>
-            </div>
+                <button mat-button matStepperNext>Suivant</button>
+            </mat-step>
 
-            <div style='display:flex; flex-direction:column;width:204px'>
+            <mat-step [stepControl]="createContratForm">
                 <mat-form-field appearance="fill">
-                    <mat-label for="">Statut</mat-label>
+                    <ng-template matStepLabel for="">Statut</ng-template>
                     <mat-select [formControl]="statutFormControl" formControlName="statut" ngDefaultControl>
                         <mat-option *ngFor="let statut of statuts" [value]="statut.value">
                             {{statut.statut}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
-            </div>
-        </div>
+                <button mat-button matStepperNext>Suivant</button>
+            </mat-step>
 
-        <div>
-            <button mat-raised-button type="submit" color="primary" [disabled]="createContratForm.invalid" mat-button
-                cdkFocusInitial>Créer le contrat</button>
-        </div>
+            
 
-    </form>
+
+
+        </form>
+            <mat-step>
+                <ng-template matStepLabel >Terminé</ng-template>
+                <button mat-raised-button type="submit" color="primary" [disabled]="createContratForm.invalid" (click)="onSubmitCreate(createContratForm)" 
+                    mat-button>Créer le contrat</button>
+                </mat-step>
+
+
+
+    </mat-stepper>
 </div>

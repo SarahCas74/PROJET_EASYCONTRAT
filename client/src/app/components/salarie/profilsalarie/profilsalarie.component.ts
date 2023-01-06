@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { EditprofilsalarieComponent } from 'src/app/modales/editprofilsalarie/editprofilsalarie.component';
 import { GlobalService } from 'src/app/services/global.service';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { SalarieModel } from 'src/app/models/salarie-model';
 
@@ -24,10 +24,15 @@ export class ProfilsalarieComponent implements OnInit {
 
   //Editer le profil
   editModal(item: any) {
+    const modalOptions: MatDialogConfig = {
+      disableClose: true,
+    };
     //Ouvrir une modal
     let dialogRef = this.matdialog.open(EditprofilsalarieComponent, {
       width: '500px',
-      data: item
+      height:'80vh',
+      data: item,
+      ...modalOptions
     })
     //Fermer une modal
     dialogRef.afterClosed().subscribe((updatedProfil: any) => {

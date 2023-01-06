@@ -1,0 +1,24 @@
+.content, .logo, .signatureentreprise{
+    display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+}
+
+.profilEntreprise{
+        display: flex;
+   justify-content: center;
+}
+
+h2{
+    text-align: center;
+}
+
+.img_signature{
+    width: 20%;
+    height: 20%;
+}
+.img_logo{
+    width: 20%;
+    height: 20%;
+}

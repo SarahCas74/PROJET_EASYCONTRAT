@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL:'https://easycontrat-back.onrender.com/',
+  API_URL:'https://easycontrat-back.onrender.com',
 };
 
 /*

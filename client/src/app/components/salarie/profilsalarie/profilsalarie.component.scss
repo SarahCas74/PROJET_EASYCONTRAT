@@ -1,9 +1,16 @@
-.profil{
-    display: flex;
-    flex-direction: column;
-  }
+.content{
+  display: flex;
+ justify-content: center;
+ flex-direction: column;
+ align-items: center;
+}
 
-  .contentProfil {
-    display: flex;
-    height: 100%;
-    justify-content: center }
+.profilSalarie{
+      display: flex;
+ justify-content: center;
+}
+
+h2{
+  text-align: center;
+}
+
