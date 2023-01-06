@@ -4,9 +4,7 @@
         <h2>Inscription</h2>
         <form [formGroup]="salarieRegisterForm" (ngSubmit)="onSubmitRegister()" class="formulaire">
 
-
-            <div>
-                <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label for="">Nom</mat-label>
                     <input matInput type="text" class="form-control" formControlName="nom_salarie">
                 </mat-form-field>
@@ -20,9 +18,7 @@
                     <mat-label for="">Prénom</mat-label>
                     <input matInput type="text" class="form-control" formControlName="prenom_salarie">
                 </mat-form-field>
-            </div>
 
-            <div>
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Date de naissance</mat-label>
                     <input type="date" matInput class="form-control" formControlName="date_naissance">
@@ -38,28 +34,20 @@
                     <input matInput type="text" class="form-control" formControlName="num_ss">
                 </mat-form-field>
 
-            </div>
-
-            <div>
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label for="">Rue</mat-label>
                     <input matInput type="text" class="form-control" formControlName="rue_salarie">
                 </mat-form-field>
-
 
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label for="">Code Postal</mat-label>
                     <input matInput type="text" class="form-control" formControlName="cp_salarie">
                 </mat-form-field>
 
-
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label for="">Ville</mat-label>
                     <input matInput type="text" class="form-control" formControlName="ville_salarie">
                 </mat-form-field>
-            </div>
-
-            <div>
 
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label for="">Téléphone</mat-label>
@@ -93,7 +81,6 @@
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>
-            </div>
 
             <button mat-raised-button type="submit" color="primary" [disabled]="salarieRegisterForm.invalid" mat-button
                 cdkFocusInitial>Créer mon compte</button>
