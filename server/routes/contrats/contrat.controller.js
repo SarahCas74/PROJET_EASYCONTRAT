@@ -51,7 +51,7 @@ exports.listContrat = async (req, res) => {
 
 exports.oneContrat = async (req, res) => {
     try {
-        const oneContrat = await pool.query("SELECT * FROM entreprise INNER JOIN contrat on entreprise.id_entreprise=contrat.fk_entreprise");
+        const oneContrat = await pool.query("SELECT * FROM entreprise INNER JOIN contrat on entreprise.id_entreprise=contrat.fk_entreprise INNER JOIN salarie on salarie.id_salarie = contrat.fk_salarie");
         res.json(oneContrat.rows);
     } catch (error) {
         console.log(error.message);
