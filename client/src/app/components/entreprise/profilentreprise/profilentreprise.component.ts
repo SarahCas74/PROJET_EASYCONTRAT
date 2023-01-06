@@ -48,6 +48,9 @@ export class ProfilentrepriseComponent implements OnInit {
       }
       this.uploader.onCompleteItem = (fichier: any) => {
         this._snackBar.open('Votre fichier a bien été importé', 'ok', { verticalPosition: 'top' })
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000)
       }
 
             //fichier uploadé logo
@@ -56,6 +59,9 @@ export class ProfilentrepriseComponent implements OnInit {
       }
       this.uploaderlogo.onCompleteItem = (fichier: any) => {
         this._snackBar.open('Votre fichier a bien été importé', 'ok', { verticalPosition: 'top' })
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000)
       }
 
 

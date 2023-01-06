@@ -4,14 +4,17 @@
 }
 
 .loginEntreprise{
-margin:5px;
+margin-top:5px;
 padding: 5px;
-border : solid 2px black;
 display: flex;
 justify-content: center;
 align-items: center;
 text-align: center;
 flex-direction: column;
+}
+
+h2{
+    margin:20px;
 }
 
 .registerEntreprise{
@@ -26,4 +29,8 @@ flex-direction: column;
 
 .example-full-width{
 margin:2px
+}
+
+.lien_register{
+    margin-top:30px
 }

@@ -34,6 +34,8 @@ import { ProfilentrepriseComponent } from './components/entreprise/profilentrepr
 import { ProfilsalarieComponent } from './components/salarie/profilsalarie/profilsalarie.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptorProvider } from './utils/token.interceptor';
+import { RegistersalarieComponent } from './components/salarie/registersalarie/registersalarie.component';
+import { RegisterentrepriseComponent } from './components/entreprise/registerentreprise/registerentreprise.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { TokenInterceptorProvider } from './utils/token.interceptor';
     CreatecontratComponent,
     ConfirmcontratComponent,
     DetailcontratComponent,
+    RegistersalarieComponent,
+    RegisterentrepriseComponent,
   ],
   imports: [
     BrowserModule,

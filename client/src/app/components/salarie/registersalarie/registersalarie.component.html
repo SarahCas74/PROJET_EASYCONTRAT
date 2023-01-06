@@ -1,46 +1,9 @@
 
-    <div class="loginSalarie">
+    <div class="registerSalarie">
         <h2 style="text-align:center">Espace Salarié</h2>
-        <form [formGroup]="salarieLoginForm" (ngSubmit)="onSubmitLogin()">
-
-            <div>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label for="">E Mail</mat-label>
-                    <input matInput type="email" class="form-control" formControlName="email_salarie">
-                </mat-form-field>
-            </div>
-
-            <div>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label for="">Mot de passe</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" class="form-control"
-                        formControlName="mdp_salarie">
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                        [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                </mat-form-field><br>
-            </div>
-            <p> <a href="" style="cursor:pointer">Mot de passe oublié</a></p>
-
-            <div mat-dialog-actions>
-                <button style="margin-top: 30px;" class="button" mat-raised-button type="submit" color="primary"
-                    [disabled]="salarieLoginForm.invalid" mat-button cdkFocusInitial>Connexion</button>
-            </div>
-
-        </form>
-
-<div class="lien_register">
-            <a routerLink="/salarie/register"><button mat-raised-button color="primary">Formulaire d'inscription</button></a>
-</div>
-    </div>
-
-
-
-    <!-- <div class="registerSalarie">
+        <h2>Inscription</h2>
         <form [formGroup]="salarieRegisterForm" (ngSubmit)="onSubmitRegister()" class="formulaire">
 
-            <h2>Inscription</h2>
 
             <div>
                 <mat-form-field class="example-full-width" appearance="fill">
@@ -136,5 +99,4 @@
                 cdkFocusInitial>Créer mon compte</button>
 
         </form>
-    </div> -->
-
+    </div>

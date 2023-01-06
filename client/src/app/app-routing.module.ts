@@ -13,9 +13,12 @@ import { ProfilentrepriseComponent } from './components/entreprise/profilentrepr
 import { ProfilentrepriseResolver } from './utils/profilentreprise.resolver';
 import { ProfilsalarieComponent } from './components/salarie/profilsalarie/profilsalarie.component';
 import { ProfilsalarieResolver } from './utils/profilsalarie.resolver';
+import { RegisterentrepriseComponent } from './components/entreprise/registerentreprise/registerentreprise.component';
+import { RegistersalarieComponent } from './components/salarie/registersalarie/registersalarie.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
+  { path: 'salarie/register', component: RegistersalarieComponent },
   { path: 'salarie/login', component: LoginsalarieComponent },
   {
     path: 'salarie', component: OverviewsalarieComponent,
@@ -28,6 +31,7 @@ const routes: Routes = [
       }]
   },
   { path: 'entreprise/login', component: LoginentrepriseComponent },
+  { path: 'entreprise/register', component: RegisterentrepriseComponent },
   {
     path: 'entreprise', component: OverviewentrepriseComponent,
     children: [

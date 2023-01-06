@@ -1,12 +1,6 @@
-.generalSalarie{
-    display: flex;
-    justify-content: center;
-}
-
 .loginSalarie{
-margin:5px;
+margin-top:10px;
 padding: 5px;
-border : solid 2px black;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -14,16 +8,15 @@ text-align: center;
 flex-direction: column;
 }
 
-.registerSalarie{
-    margin:5px;
-    padding: 5px;
-    border : solid 2px black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
 
 .example-full-width{
 margin:2px
+}
+
+h2{
+    margin:20px;
+}
+
+.lien_register{
+    margin-top:30px
 }
