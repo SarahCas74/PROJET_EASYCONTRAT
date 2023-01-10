@@ -12,8 +12,7 @@
 
 <body>
     <div *ngIf="data" class=contrat id="text">
-        <img class=img_logo
-            [src]=' "https://easycontrat-back.onrender.com/documents/"+data.nom_entreprise+"/logo.jpg" '
+        <img class=img_logo [src]=' "https://easycontrat-back.onrender.com/documents/"+data.nom_entreprise+"/logo.jpg" '
             alt="">
 
         <h1>Contrat de travail</h1>
@@ -62,8 +61,17 @@
 
             <p>Type de contrat : {{data.type_}}</p>
             <p>Date d'entrée en entreprise : {{data.date_debut | date: "dd/MM/yyyy" }}</p>
-            <p>Date de fin de contrat : {{data.date_fin | date: "dd/MM/yyyy"}}</p>
-            <p>Motif : {{data.motif}}</p>
+            <p *ngIf="data.date_fin">Date de fin de contrat : {{data.date_fin | date: "dd/MM/yyyy"}}</p>
+            <p *ngIf="data.motif">Motif : {{data.motif}}</p>
+            <div *ngIf="data.motif=='Remplacement'">
+                <p>Nom du remplacé: {{data.nom_remplacement}}</p>
+            </div>
+            <div *ngIf="data.motif=='Remplacement'">
+                <p>Fonction du remplacé : {{data.fonction_remplacement}}</p>
+            </div>
+            <div *ngIf="data.motif=='Surcroît d\'activité'">
+                <p>Motif du surcroît d'activité : {{data.motif_surcroit}}</p>
+            </div>
 
             <p>Période d'essai jusqu'au : {{data.periode_fin_essai | date: "dd/MM/yyyy"}} inclus </p>
 
@@ -73,11 +81,39 @@
             <p>Statut : {{data.statut}}</p>
             <p> Rémunération : {{data.remuneration}} € brut mensuel</p>
 
-            <p *ngIf="data.is_fullTime==true">Durée du travail : Temps partiel</p>
+            <div *ngIf="data.is_fullTime==true">
+            <p>Durée du travail : Temps partiel</p>
+            <p>Horaire hebdomadaire moyen: {{data.total_heure}} hebdomadaires</p>
+
+            Répartition : <br>
+            Lundi : {{data.lundi}}<br>
+            Mardi : {{data.mardi}}<br>
+            Mercredi : {{data.mercredi}}<br>
+            Jeudi : {{data.jeudi}}<br>
+            Vendredi : {{data.vendredi}}<br>
+            Samedi : {{data.samedi}}<br>
+            Dimanche :{{data.dimanche}}
+
+            <p>Un planning mensuel sera communiqué chaque fin de mois pour le mois suivant. <br>
+                Modification éventuelle de la répartition : Délai de prévenance 7 jours ouvrés
+                avant la date d’effet. <br>
+                Possible en cas d'absence d'un salarié, d’inventaire, d’évènement commercial,
+                d'évènement imprévu, de réorganisation des plannings ou des tâches de l'équipe. <br>
+                Modalité des heures complémentaires : Dans la limite du tiers de la durée
+                contractuelle</p>
             <p *ngIf="data.is_fullTime==false">Durée du travail : Temps plein <br>
                 Horaires de travail : 35,00 heures en moyenne par semaine soit 151,67 heures mois.
             </p>
+        </div>
+            <strong>
+                <p>Conditions d’exécution du contrat :</p>
+            </strong>
             <p>Lieu de travail : Site Principal</p>
+
+            <p>Convention collective : {{data.convention}}</p>
+            <p>Régime de retraite : {{data.retraite}}</p>
+            <p>Complémentaire maladie : {{data.complementaire}}</p>
+            <p>Régime de prévoyance : {{data.prevoyance}}</p>
 
             <p>Règlement intérieur : Le salarié reconnait en avoir pris connaissance.</p>
 

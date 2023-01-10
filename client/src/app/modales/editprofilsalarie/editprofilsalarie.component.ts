@@ -35,7 +35,7 @@ export class EditprofilsalarieComponent implements OnInit {
       confirmPassword: [(''), Validators.required]
     })
 
-
+console.log(this.data.date_naissance);
   }
 
   closeModal() {

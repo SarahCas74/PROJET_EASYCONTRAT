@@ -31,7 +31,11 @@ export class EditprofilentrepriseComponent implements OnInit {
       code_ape: this.data.code_ape,
       email_entreprise: this.data.email_entreprise,
       mdp_entreprise: [(''), Validators.required],
-      confirmPassword: [(''), Validators.required]
+      confirmPassword: [(''), Validators.required],
+      retraite: this.data.retraite,
+      prevoyance: this.data.prevoyance,
+      complementaire: this.data.complementaire,
+      convention: this.data.convention,
     })
   }
 

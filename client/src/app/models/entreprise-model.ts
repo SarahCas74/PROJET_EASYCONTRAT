@@ -12,6 +12,9 @@ export class EntrepriseModel {
     email_entreprise!: string
     mdp_entreprise!: string
     confirmPassword!: string
-    token!:string
-
+    token!: string
+    retraite!: string
+    prevoyance!: string
+    complementaire!: string
+    convention!: string
 }

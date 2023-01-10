@@ -19,6 +19,9 @@ export class ProfilsalarieComponent implements OnInit {
     this._globalService.getProfilSalarie().subscribe((response: any) => {
 
       this.profilSalarie = response
+
+      console.log(this.profilSalarie.date_naissance);
+      
     })
   }
 

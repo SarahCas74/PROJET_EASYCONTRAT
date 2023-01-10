@@ -37,6 +37,10 @@ export class RegisterentrepriseComponent implements OnInit {
         email_entreprise: [this.entreprise.email_entreprise, Validators.required],
         mdp_entreprise: [this.entreprise.mdp_entreprise, Validators.required],
         confirmPassword: [this.entreprise.confirmPassword, Validators.required],
+        retraite: [this.entreprise.retraite, Validators.required],
+        prevoyance: [this.entreprise.prevoyance, Validators.required],
+        complementaire: [this.entreprise.complementaire, Validators.required],
+        convention: [this.entreprise.convention, Validators.required],
       })
   
     }

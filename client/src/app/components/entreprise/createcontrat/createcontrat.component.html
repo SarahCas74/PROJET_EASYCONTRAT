@@ -1,12 +1,12 @@
 <div class="createContrat">
     <h2 style="text-align:center">Créer un contrat</h2>
-    
+
     <mat-stepper orientation="vertical" [linear]="false" #stepper>
         <form [formGroup]="createContratForm" class="formulaire">
 
             <mat-step [stepControl]="createContratForm">
 
-                <ng-template matStepLabel >Choisir un salarié</ng-template>
+                <ng-template matStepLabel>Choisir un salarié</ng-template>
                 <select formControlName="fk_salarie">
                     <option *ngFor="let item of listeSalarie" [value]="item.id_salarie">
                         {{item.nom_salarie}} {{item.prenom_salarie}}
@@ -46,9 +46,90 @@
                 </mat-step>
             </div>
 
-            <mat-checkbox formControlName="is_fullTime"> <ng-template  for="">Temps partiel
-                    ?</ng-template>
-            </mat-checkbox>
+            <mat-step [stepControl]="createContratForm">
+                <ng-template matStepLabel>Temps partiel ?</ng-template>
+                <mat-checkbox formControlName="is_fullTime">Oui </mat-checkbox>
+            </mat-step>
+
+            <div *ngIf="createContratForm.value.is_fullTime == true ">
+                <mat-step [stepControl]="createContratForm">
+                    <mat-form-field appearance="fill">
+                        <ng-template matStepLabel for="">Total des heures hebdomadaires</ng-template>
+                        <input matInput type="text" formControlName="total_heure">
+                    </mat-form-field>
+                    <button mat-button matStepperNext>Suivant</button>
+                </mat-step>
+            </div>
+
+            <div *ngIf="createContratForm.value.is_fullTime == true ">
+                <mat-step [stepControl]="createContratForm">
+                    <mat-form-field appearance="fill">
+                        <ng-template matStepLabel for="">Lundi</ng-template>
+                        <input matInput type="text" formControlName="lundi">
+                    </mat-form-field>
+                    <button mat-button matStepperNext>Suivant</button>
+                </mat-step>
+            </div>
+
+            <div *ngIf="createContratForm.value.is_fullTime == true ">
+                <mat-step [stepControl]="createContratForm">
+                    <mat-form-field appearance="fill">
+                        <ng-template matStepLabel for="">Mardi</ng-template>
+                        <input matInput type="text" formControlName="mardi">
+                    </mat-form-field>
+                    <button mat-button matStepperNext>Suivant</button>
+                </mat-step>
+            </div>
+
+            <div *ngIf="createContratForm.value.is_fullTime == true ">
+                <mat-step [stepControl]="createContratForm">
+                    <mat-form-field appearance="fill">
+                        <ng-template matStepLabel for="">Mercredi</ng-template>
+                        <input matInput type="text" formControlName="mercredi">
+                    </mat-form-field>
+                    <button mat-button matStepperNext>Suivant</button>
+                </mat-step>
+            </div>
+
+            <div *ngIf="createContratForm.value.is_fullTime == true ">
+                <mat-step [stepControl]="createContratForm">
+                    <mat-form-field appearance="fill">
+                        <ng-template matStepLabel for="">Jeudi</ng-template>
+                        <input matInput type="text" formControlName="jeudi">
+                    </mat-form-field>
+                    <button mat-button matStepperNext>Suivant</button>
+                </mat-step>
+            </div>
+
+            <div *ngIf="createContratForm.value.is_fullTime == true ">
+                <mat-step [stepControl]="createContratForm">
+                    <mat-form-field appearance="fill">
+                        <ng-template matStepLabel for="">Vendredi</ng-template>
+                        <input matInput type="text" formControlName="vendredi">
+                    </mat-form-field>
+                    <button mat-button matStepperNext>Suivant</button>
+                </mat-step>
+            </div>
+
+            <div *ngIf="createContratForm.value.is_fullTime == true ">
+                <mat-step [stepControl]="createContratForm">
+                    <mat-form-field appearance="fill">
+                        <ng-template matStepLabel for="">Samedi</ng-template>
+                        <input matInput type="text" formControlName="samedi">
+                    </mat-form-field>
+                    <button mat-button matStepperNext>Suivant</button>
+                </mat-step>
+            </div>
+
+            <div *ngIf="createContratForm.value.is_fullTime == true ">
+                <mat-step [stepControl]="createContratForm">
+                    <mat-form-field appearance="fill">
+                        <ng-template matStepLabel for="">Dimanche</ng-template>
+                        <input matInput type="text" formControlName="dimanche">
+                    </mat-form-field>
+                    <button mat-button matStepperNext>Suivant</button>
+                </mat-step>
+            </div>
 
             <mat-step [stepControl]="createContratForm">
                 <mat-form-field appearance="fill">
@@ -69,7 +150,7 @@
             <div *ngIf="createContratForm.value.type_ == 'CDD' ">
                 <mat-step [stepControl]="createContratForm">
                     <mat-form-field appearance="fill">
-                        <ng-template matStepLabel  for="">Motif</ng-template>
+                        <ng-template matStepLabel for="">Motif</ng-template>
                         <mat-select [formControl]="motifFormControl" formControlName="motif" ngDefaultControl>
                             <mat-option *ngFor="let motif of motifs" [value]="motif.value">
                                 {{motif.motif}}
@@ -80,9 +161,40 @@
                 </mat-step>
             </div>
 
+            <div *ngIf="createContratForm.value.motif == 'Remplacement' ">
+                <mat-step [stepControl]="createContratForm">
+                    <mat-form-field appearance="fill">
+                        <ng-template matStepLabel for="">Nom du remplacé</ng-template>
+                        <input matInput type="text" formControlName="nom_remplacement">
+                    </mat-form-field>
+                    <button mat-button matStepperNext>Suivant</button>
+                </mat-step>
+            </div>
+
+            <div *ngIf="createContratForm.value.motif == 'Remplacement' ">
+                <mat-step [stepControl]="createContratForm">
+                    <mat-form-field appearance="fill">
+                        <ng-template matStepLabel for="">Fonction du remplacé</ng-template>
+                        <input matInput type="text" formControlName="fonction_remplacement">
+                    </mat-form-field>
+                    <button mat-button matStepperNext>Suivant</button>
+                </mat-step>
+            </div>
+
+            <div *ngIf="createContratForm.value.motif == 'Surcroît d\'activité' ">
+                <mat-step [stepControl]="createContratForm">
+                    <mat-form-field appearance="fill">
+                        <ng-template matStepLabel for="">Motif du surcroît d'activité</ng-template>
+                        <input matInput type="text" formControlName="motif_surcroit">
+                    </mat-form-field>
+                    <button mat-button matStepperNext>Suivant</button>
+                </mat-step>
+            </div>
+
+
             <mat-step [stepControl]="createContratForm">
                 <mat-form-field appearance="fill">
-                    <ng-template  matStepLabel for="">Fonction</ng-template>
+                    <ng-template matStepLabel for="">Fonction</ng-template>
                     <input matInput type="text" class="form-control" formControlName="fonction">
                 </mat-form-field>
                 <button mat-button matStepperNext>Suivant</button>
@@ -100,16 +212,16 @@
                 <button mat-button matStepperNext>Suivant</button>
             </mat-step>
 
-            
+
 
 
 
         </form>
-            <mat-step>
-                <ng-template matStepLabel >Terminé</ng-template>
-                <button mat-raised-button type="submit" color="primary" [disabled]="createContratForm.invalid" (click)="onSubmitCreate(createContratForm)" 
-                    mat-button>Créer le contrat</button>
-                </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Terminé</ng-template>
+            <button mat-raised-button type="submit" color="primary" [disabled]="createContratForm.invalid"
+                (click)="onSubmitCreate(createContratForm)" mat-button>Créer le contrat</button>
+        </mat-step>
 
 
 

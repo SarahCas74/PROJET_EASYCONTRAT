@@ -17,7 +17,11 @@ exports.createEntreprise = async (req, res) => {
             raison_sociale,
             code_ape,
             email_entreprise,
-            mdp_entreprise
+            mdp_entreprise,
+            retraite,
+            complementaire,
+            prevoyance,
+            convention
         } = req.body; // = const description = req.body.description
 
         //validate mail
@@ -43,7 +47,7 @@ exports.createEntreprise = async (req, res) => {
         }
 
         entreprise = await pool.query(
-            "INSERT INTO entreprise (nom_entreprise,prenom_entreprise,telephone_entreprise,rue_entreprise,cp_entreprise,ville_entreprise,siret, raison_sociale,code_ape, email_entreprise, mdp_entreprise) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *",
+            "INSERT INTO entreprise (nom_entreprise,prenom_entreprise,telephone_entreprise,rue_entreprise,cp_entreprise,ville_entreprise,siret, raison_sociale,code_ape, email_entreprise, mdp_entreprise, retraite,complementaire,prevoyance,convention) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING *",
             [
                 nom_entreprise,
                 prenom_entreprise,
@@ -55,7 +59,11 @@ exports.createEntreprise = async (req, res) => {
                 raison_sociale,
                 code_ape,
                 email_entreprise,
-                mdp_entreprise
+                mdp_entreprise,
+                retraite,
+                complementaire,
+                prevoyance,
+                convention
             ]
         );
 
@@ -150,7 +158,11 @@ exports.updateEntreprise = async (req, res) => {
             raison_sociale,
             code_ape,
             email_entreprise,
-            mdp_entreprise } = req.body;
+            mdp_entreprise,
+            retraite,
+            complementaire,
+            prevoyance,
+            convention } = req.body;
 
             //validate mail
         if (!isEmail(email_entreprise)) {
@@ -169,7 +181,7 @@ exports.updateEntreprise = async (req, res) => {
             return false
         }
 
-        let updateEntreprise = await pool.query("UPDATE entreprise SET nom_entreprise=$1, prenom_entreprise=$2, telephone_entreprise=$3, rue_entreprise=$4, cp_entreprise=$5, ville_entreprise=$6, siret=$7, raison_sociale=$8, code_ape=$9, email_entreprise=$10, mdp_entreprise=$11 WHERE id_entreprise=$12",
+        let updateEntreprise = await pool.query("UPDATE entreprise SET nom_entreprise=$1, prenom_entreprise=$2, telephone_entreprise=$3, rue_entreprise=$4, cp_entreprise=$5, ville_entreprise=$6, siret=$7, raison_sociale=$8, code_ape=$9, email_entreprise=$10, mdp_entreprise=$11, retraite=$12, complementaire=$13, prevoyance=$14, convention=$15 WHERE id_entreprise=$16",
 
             [nom_entreprise,
                 prenom_entreprise,
@@ -181,7 +193,16 @@ exports.updateEntreprise = async (req, res) => {
                 raison_sociale,
                 code_ape,
                 email_entreprise,
-                mdp_entreprise, id]
+                mdp_entreprise, 
+                retraite,
+                complementaire,
+                prevoyance,
+                convention,
+                retraite,
+                complementaire,
+                prevoyance,
+                convention,
+                id]
         );
         res.json("Entreprise was updated!")
     } catch (error) {
@@ -218,7 +239,11 @@ exports.putUpdateEntreprise = async (req, res) => {
             raison_sociale,
             code_ape,
             email_entreprise,
-            mdp_entreprise } = req.body;
+            mdp_entreprise,
+            retraite,
+            complementaire,
+            prevoyance,
+            convention } = req.body;
 
             //validate mail
         if (!isEmail(email_entreprise)) {
@@ -237,7 +262,7 @@ exports.putUpdateEntreprise = async (req, res) => {
             return false
         }
 
-        let updateEntreprise = await pool.query("UPDATE entreprise SET nom_entreprise=$1, prenom_entreprise=$2, telephone_entreprise=$3, rue_entreprise=$4, cp_entreprise=$5, ville_entreprise=$6, siret=$7, raison_sociale=$8, code_ape=$9, email_entreprise=$10, mdp_entreprise=$11 WHERE id_entreprise=$12",
+        let updateEntreprise = await pool.query("UPDATE entreprise SET nom_entreprise=$1, prenom_entreprise=$2, telephone_entreprise=$3, rue_entreprise=$4, cp_entreprise=$5, ville_entreprise=$6, siret=$7, raison_sociale=$8, code_ape=$9, email_entreprise=$10, mdp_entreprise=$11, retraite=$12, complementaire=$13, prevoyance=$14, convention=$15 WHERE id_entreprise=$16",
 
             [nom_entreprise,
                 prenom_entreprise,

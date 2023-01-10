@@ -92,7 +92,7 @@ export class CreatecontratComponent implements OnInit {
         fk_salarie: [(''), Validators.required],
         type_: [(''), Validators.required],
         date_debut: [(''), Validators.required],
-        date_fin: (''),
+        date_fin: this.contrat.date_fin,
         periode_fin_essai: [(''), Validators.required],
         remuneration: [(''), Validators.required],
         motif: (''),
@@ -100,6 +100,17 @@ export class CreatecontratComponent implements OnInit {
         statut: [(''), Validators.required],
         is_fullTime: false,
         fk_entreprise: [this.profilEntreprise.id_entreprise, Validators.required],
+        nom_remplacement: (''),
+        fonction_remplacement: (''),
+        motif_surcroit: (''),
+        lundi:(''),
+        mardi:(''),
+        mercredi:(''),
+        jeudi:(''),
+        vendredi:(''),
+        samedi:(''),
+        dimanche:(''),
+        total_heure:(''),
 
         //partie entreprise
         nom_entreprise: this.profilEntreprise.nom_entreprise,
@@ -110,6 +121,10 @@ export class CreatecontratComponent implements OnInit {
         siret: this.profilEntreprise.siret,
         raison_sociale: this.profilEntreprise.raison_sociale,
         code_ape: this.profilEntreprise.code_ape,
+        retraite:this.profilEntreprise.retraite,
+        complementaire:this.profilEntreprise.complementaire,
+        prevoyance:this.profilEntreprise.prevoyance,
+        convention:this.profilEntreprise.convention,
 
         //partie salarie
         nom_salarie: (''),
@@ -137,7 +152,6 @@ export class CreatecontratComponent implements OnInit {
         value.lieu_naissance = this.infoSalarie.lieu_naissance
       })
     })
-
 
   }
 
