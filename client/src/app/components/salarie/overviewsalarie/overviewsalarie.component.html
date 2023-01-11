@@ -1,5 +1,5 @@
 <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened="true">
 
     <div style='text-align:center; margin-bottom:20px'>
       {{profilSalarie.nom_salarie}}
@@ -7,35 +7,34 @@
     </div>
 
     <div style="display:flex;flex-direction: column">
-      <button mat-raised-button color=primary (click)="onMonProfil()">Mon profil</button>
-      <button mat-raised-button color=primary (click)="onMesContrats()">Mes contrats</button>
+      <button mat-raised-button color=primary (click)="onMonProfil()" (click)="drawer.toggle()">Mon profil</button>
+      <button mat-raised-button color=primary (click)="onMesContrats()" (click)="drawer.toggle()">Mes contrats</button>
     </div>
-
-
 
   </mat-drawer>
 
-  <div style='display:flex;justify-content: space-between;'>
+    <div class="bouton">
 
-    <div mat-dialog-actions class="picto-itemmenu" aria-label="menu">
-      <button type="button" mat-button (click)="drawer.toggle()" mat-fab color="primary">
-        <mat-icon>menu</mat-icon>
-      </button>
+      <div mat-dialog-actions class="picto-itemmenu" aria-label="menu">
+        <button type="button" mat-button (click)="drawer.toggle()" mat-fab color="primary">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+
+      <div mat-dialog-actions class="picto-itemlogout" aria-label="déconnexion">
+        <button mat-raised-button type="submit" color="primary"
+          (click)="onLogOut()"><mat-icon>exit_to_app</mat-icon></button>
+      </div>
+
     </div>
 
-    <div mat-dialog-actions class="picto-itemlogout" aria-label="déconnexion">
-      <button mat-raised-button type="submit" color="primary"
-        (click)="onLogOut()"><mat-icon>exit_to_app</mat-icon></button>
+
+    <div class="content_salarie">
+      <router-outlet></router-outlet>
+
+
+
+
     </div>
-  </div>
-
-
-  <div class="content">
-    <router-outlet></router-outlet>
-
-
-
-
-  </div>
 
 </mat-drawer-container>

@@ -3,6 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-editprofilsalarie',
@@ -15,9 +16,11 @@ export class EditprofilsalarieComponent implements OnInit {
   hide = true;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-    private _ref: MatDialogRef<any>, private _globalService: GlobalService, private _fb: FormBuilder, private _snackBar: MatSnackBar) { }
+    private _ref: MatDialogRef<any>, private _globalService: GlobalService, private _fb: FormBuilder, private _snackBar: MatSnackBar, public datepipe: DatePipe) { }
 
   ngOnInit(): void {
+
+let date_naissance = this.datepipe.transform(this.data.date_naissance, 'MM-dd-yyyy')
 
     this.updatedProfilForm = this._fb.group({
       nom_salarie: this.data.nom_salarie,
@@ -27,7 +30,7 @@ export class EditprofilsalarieComponent implements OnInit {
       cp_salarie: this.data.cp_salarie,
       ville_salarie: this.data.ville_salarie,
       num_ss: this.data.num_ss,
-      date_naissance: this.data.date_naissance,
+      date_naissance: date_naissance,
       lieu_naissance: this.data.lieu_naissance,
       nom_jeune_fille: this.data.nom_jeune_fille,
       email_salarie: this.data.email_salarie,
@@ -35,7 +38,8 @@ export class EditprofilsalarieComponent implements OnInit {
       confirmPassword: [(''), Validators.required]
     })
 
-console.log(this.data.date_naissance);
+    
+    
   }
 
   closeModal() {

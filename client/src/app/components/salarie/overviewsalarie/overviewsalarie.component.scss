@@ -3,10 +3,11 @@
     height: 100vh;
   }
   
-  .content {
+  .content_salarie {
+    margin-top: 60px;
     display: flex;
     height: 100%;
-    justify-content: center }
+    justify-content: center; }
   
   .example-sidenav {
     padding: 20px;
@@ -74,4 +75,17 @@
 
 }
 
+.bouton {
 
+
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+// .content {
+//   margin-top: 60px;
+
+// }

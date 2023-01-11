@@ -7,6 +7,7 @@ import { ConfirmcontratComponent } from './modales/confirmcontrat/confirmcontrat
 import { ContratComponent } from './components/salarie/contrat/contrat.component';
 import { ContratentrepriseComponent } from './components/entreprise/contratentreprise/contratentreprise.component';
 import { CreatecontratComponent } from './components/entreprise/createcontrat/createcontrat.component';
+import { DatePipe } from '@angular/common';
 import { DetailcontratComponent } from './modales/detailcontrat/detailcontrat.component';
 import { EditprofilentrepriseComponent } from './modales/editprofilentreprise/editprofilentreprise.component';
 import { EditprofilsalarieComponent } from './modales/editprofilsalarie/editprofilsalarie.component';
@@ -33,9 +34,9 @@ import { OverviewsalarieComponent } from './components/salarie/overviewsalarie/o
 import { ProfilentrepriseComponent } from './components/entreprise/profilentreprise/profilentreprise.component';
 import { ProfilsalarieComponent } from './components/salarie/profilsalarie/profilsalarie.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TokenInterceptorProvider } from './utils/token.interceptor';
-import { RegistersalarieComponent } from './components/salarie/registersalarie/registersalarie.component';
 import { RegisterentrepriseComponent } from './components/entreprise/registerentreprise/registerentreprise.component';
+import { RegistersalarieComponent } from './components/salarie/registersalarie/registersalarie.component';
+import { TokenInterceptorProvider } from './utils/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -76,9 +77,10 @@ import { RegisterentrepriseComponent } from './components/entreprise/registerent
     FileUploadModule,
     MatCardModule,
     NgbModule,
-    MatStepperModule
+    MatStepperModule,
+    DatePipe
   ],
-  providers: [TokenInterceptorProvider],
+  providers: [TokenInterceptorProvider, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

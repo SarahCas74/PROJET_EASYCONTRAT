@@ -1,22 +1,23 @@
 .example-container {
-    width: 100%;
-    height: 100vh;
-  }
-  
-  .content {
-    display: flex;
-    height: 100%;
-    justify-content: center }
-  
-  .example-sidenav {
-    padding: 20px;
-  }
+  width: 100%;
+  height: 100vh;
+}
 
-  button{
-    margin: 5px;
-  }
+.content {
+  display: flex;
+  height: 100%;
+  justify-content: center
+}
 
-  .picto-itemlogout:hover:after,
+.example-sidenav {
+  padding: 20px;
+}
+
+button {
+  margin: 5px;
+}
+
+.picto-itemlogout:hover:after,
 .picto-itemlogout:focus:after {
   content: attr(aria-label);
   /* on affiche aria-label */
@@ -74,4 +75,17 @@
 
 }
 
+.bouton {
 
+
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 1
+}
+
+.content {
+  margin-top: 60px;
+
+}
