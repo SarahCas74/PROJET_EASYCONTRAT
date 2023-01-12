@@ -9,7 +9,7 @@ const fs = require('fs')
 //middleware = intermédiaire
 app.use(cors({
     // credentials: true, origin: 'http://localhost:4200'
-    credentials: true, origin: '*'
+    credentials: true, origin: true
 })); //autoriser les requêtes
 app.use(express.json()); //req.body //mettre un objet à la place du texte, et passe la requête à la suivante
 app.use("/salarie", myRouterSalarie)
