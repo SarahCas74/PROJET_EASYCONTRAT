@@ -17,6 +17,8 @@ entrepriseRegisterForm!: FormGroup;
 entreprise = new EntrepriseModel();
 errorPass = true
 hide = true;
+axiosResult!:any
+localstorageToken !:any
 
   constructor(private _fb: FormBuilder,
     private _route: Router,
@@ -51,12 +53,22 @@ hide = true;
     //requête login du service
     Object.assign(this.entreprise, this.entrepriseLoginForm.value)
     const email_entreprise = { email: this.entreprise.email_entreprise }
+
+    this._globalService.loginEntrepriseAxios(this.entreprise).then((response) => {
+      this.axiosResult = response
+      console.warn("axios response: ", response);
+    })
+
     this._globalService.loginEntreprise(this.entreprise).subscribe((response:  EntrepriseModel) => {
       console.log(response);
       
       localStorage.setItem('token', response.token)
       localStorage.setItem('user', JSON.stringify(email_entreprise))
-      this._route.navigate(['/entreprise/profil'])
+
+      //A supprimer
+      this.localstorageToken = localStorage.getItem("token")
+
+      // this._route.navigate(['/entreprise/profil'])
 
     },
       (error) => {                              //Error callback
@@ -66,30 +78,6 @@ hide = true;
     )
 
   }
-
-  onSubmitRegister(): void {
-    //CONFIRM PASSWORD
-    const password = this.entrepriseRegisterForm.value.mdp_entreprise
-    const confirmPassword = this.entrepriseRegisterForm.value.confirmPassword
-
-    if (password !== confirmPassword) {
-      this._snackBar.open('Vos mots de passes ne correspondent pas', 'ok', { verticalPosition: 'top' })
-      return;
-    }
-
-    //requête register du service
-    Object.assign(this.entreprise, this.entrepriseRegisterForm.value)
-    const email_entreprise = { email: this.entreprise.email_entreprise }
-    this._globalService.registerEntreprise(this.entreprise).subscribe((result: EntrepriseModel) => {
-    
-      if (result) {
-        localStorage.setItem('token', result.token)
-        localStorage.setItem('user', JSON.stringify(email_entreprise))
-        this._route.navigate(['/entreprise/profil'])
-      }
-    })
-  }
-
   }
 
 

@@ -1,3 +1,5 @@
+import axios, { AxiosInstance } from "axios";
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -92,6 +94,10 @@ export class GlobalService {
   //supprimer un contrat
   deleteContrat(id: any):Observable<any>{
     return this._http.delete(this.backend +'/contrat/deletecontrat/' + id)
+  }
+
+  loginEntrepriseAxios(entrepriseLoginForm: any): Promise<any> {
+    return axios.post(this.backend + "/entreprise/login", entrepriseLoginForm)
   }
 
 
