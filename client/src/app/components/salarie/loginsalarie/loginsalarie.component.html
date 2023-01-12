@@ -33,6 +33,12 @@
 <div class="lien_register">
             <a routerLink="/salarie/register"><button mat-raised-button color="primary">Formulaire d'inscription</button></a>
 </div>
+
+<div class="spinner" *ngIf="show">
+    <mat-progress-spinner mode="indeterminate">
+
+    </mat-progress-spinner>
+  </div>
     </div>
 
 

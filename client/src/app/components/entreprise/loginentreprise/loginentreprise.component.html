@@ -35,10 +35,14 @@
         <div class="lien_register">
             <a routerLink="/entreprise/register"><button mat-raised-button color="primary">Formulaire d'inscription</button></a>
 </div>
-    </div>
 
-    <p>{{axiosResult | json}}</p>
-    <p>{{localstorageToken | json}}</p>
+<div class="spinner" *ngIf="show">
+    <mat-progress-spinner mode="indeterminate">
+
+    </mat-progress-spinner>
+  </div>
+  
+    </div>
 
     <!-- <div class="registerEntreprise">
         <form [formGroup]="entrepriseRegisterForm" (ngSubmit)="onSubmitRegister()" class="formulaire">

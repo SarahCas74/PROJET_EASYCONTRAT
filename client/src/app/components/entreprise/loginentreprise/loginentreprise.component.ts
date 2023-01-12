@@ -17,8 +17,7 @@ entrepriseRegisterForm!: FormGroup;
 entreprise = new EntrepriseModel();
 errorPass = true
 hide = true;
-axiosResult!:any
-localstorageToken !:any
+show: boolean = false
 
   constructor(private _fb: FormBuilder,
     private _route: Router,
@@ -49,24 +48,16 @@ localstorageToken !:any
   }
 
   onSubmitLogin(): void {
-
+    this.show = true
     //requête login du service
     Object.assign(this.entreprise, this.entrepriseLoginForm.value)
     const email_entreprise = { email: this.entreprise.email_entreprise }
-
-    this._globalService.loginEntrepriseAxios(this.entreprise).then((response) => {
-      this.axiosResult = response
-      console.warn("axios response: ", response);
-    })
 
     this._globalService.loginEntreprise(this.entreprise).subscribe((response:  EntrepriseModel) => {
       console.log(response);
       
       localStorage.setItem('token', response.token)
       localStorage.setItem('user', JSON.stringify(email_entreprise))
-
-      //A supprimer
-      this.localstorageToken = localStorage.getItem("token")
 
       this._route.navigate(['/entreprise/profil'])
 

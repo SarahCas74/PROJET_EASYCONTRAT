@@ -16,6 +16,7 @@ export class LoginsalarieComponent implements OnInit {
   salarie = new SalarieModel();
   errorPass = true
   hide = true;
+  show: boolean = false
 
   constructor(private _fb: FormBuilder,
     private _route: Router,
@@ -33,7 +34,7 @@ export class LoginsalarieComponent implements OnInit {
 
 
   onSubmitLogin(): void {
-
+    this.show = true
     //requête login du service
     Object.assign(this.salarie, this.salarieLoginForm.value)
     const email_salarie = { email: this.salarie.email_salarie }

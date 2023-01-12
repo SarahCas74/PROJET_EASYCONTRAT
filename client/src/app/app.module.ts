@@ -23,6 +23,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -78,7 +79,8 @@ import { TokenInterceptorProvider } from './utils/token.interceptor';
     MatCardModule,
     NgbModule,
     MatStepperModule,
-    DatePipe
+    DatePipe,
+    MatProgressSpinnerModule
   ],
   providers: [TokenInterceptorProvider, DatePipe],
   bootstrap: [AppComponent]

@@ -33,6 +33,7 @@ interface Type {
   styleUrls: ['./createcontrat.component.scss']
 })
 export class CreatecontratComponent implements OnInit {
+  show: boolean = false
   // Formulaire
   createContratForm: FormGroup = new FormGroup({});
 
@@ -157,7 +158,7 @@ export class CreatecontratComponent implements OnInit {
 
   //Bouton créer le contrat qui ouvre la modale
   onSubmitCreate(item: any) {
-
+    this.show = true
     Object.assign(this.contrat, this.createContratForm.value)
     this._globalService.createContrat(this.contrat).subscribe((response: ContratModel) => {
       console.log(response);
