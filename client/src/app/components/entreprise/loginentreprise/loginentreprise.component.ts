@@ -68,7 +68,7 @@ localstorageToken !:any
       //A supprimer
       this.localstorageToken = localStorage.getItem("token")
 
-      // this._route.navigate(['/entreprise/profil'])
+      this._route.navigate(['/entreprise/profil'])
 
     },
       (error) => {                              //Error callback
